@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    .fileSelectionPanel {
+        width: 90vw;
+        max-width: 1170px;
+        margin: 5rem auto;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+
+        // First 2 input fields..
+        .input_title_artist {
+
+        }
+
+        // 
+        .input_files {
+            display: flex;
+            flex-direction: column;
+        }
+
+        //..
+        .progress_upload {
+
+        }
+    }
+
+    .songLibrary {
+        width: 90vw;
+        max-width: 1170px;
+        margin: 5rem auto;
+
+                // display
+        display: grid;
+        gap: 2rem;
+
+        // media
+        @media screen and (min-width: 760px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+    }
+
+    // individual song
+    .songInstance {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(156, 241, 251);
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        box-shadow: 0px 0px 20px rgba(79, 79, 79, 0.515);
+
+        
+
+
+        h1 {
+            margin-top: 0.5rem;
+        }
+
+        h4 {
+            margin-top: 0.25rem;
+            font-size: 0.75rem;
+        }
+
+
+        .song_cover_img {
+            width: 250px;
+
+        }
+    }
+
+
+
+    
+    
+
+
+
+}
