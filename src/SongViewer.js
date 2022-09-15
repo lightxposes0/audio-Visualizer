@@ -43,24 +43,6 @@ function SongViewer() {
 
 
 
-  const createSongInstance = async () => {
-    if ((!audioFile) & (!coverPhoto)) {
-      alert("No file chosen.");
-      
-    };
-    
-
-    await addDoc(songsCollectionReference, {title: newTitle, artist: newArtist, audio_file: audioRef, cover_photo: coverPhotoRef});
-    setAudioRef("");
-    setCoverPhotoRef("");
-    await alert("Song has been created and saved to our servers...")
-
-  };
-
-function add_photo_audio_storage() {
-  handleAudioUpload();
-  handleImageUpload();
-};
 
   
 
@@ -95,6 +77,27 @@ function add_photo_audio_storage() {
       // Set reference to cloud storage into object in firebase DB. 
       // link + filename... => ..
   }
+
+
+  const createSongInstance = async () => {
+    if ((!audioFile) & (!coverPhoto)) {
+      alert("No file chosen.");
+      
+    };
+    
+
+    await addDoc(songsCollectionReference, {title: newTitle, artist: newArtist, audio_file: audioRef, cover_photo: coverPhotoRef});
+    setAudioRef("");
+    setCoverPhotoRef("");
+    await alert("Song has been created and saved to our servers...")
+
+  };
+
+function add_photo_audio_storage() {
+  handleAudioUpload();
+  handleImageUpload();
+};
+
 
 
   // Upload the selected audio file to firebase cloud storage DB
@@ -179,10 +182,14 @@ function add_photo_audio_storage() {
           </div>
 
           <div className='input_files'>
-          <label htmlFor="files">Cover photo</label>
-          <input type="file" onChange={handleChangeImage} accept="image/*"/>
-          <label htmlFor="files">Audio Files</label>
-          <input type="file" onChange={handleChangeAudio} accept="audio/*"/>
+            <div className='input_individual'>
+              <label htmlFor="files">Cover photo</label>
+              <input type="file" onChange={handleChangeImage} accept="image/*"/>
+            </div>
+            <div className='input_individual'>
+              <label htmlFor="files">Audio Files</label>
+              <input type="file" onChange={handleChangeAudio} accept="audio/*"/>
+            </div>
           </div>
 
           <div className='progress_upload'>

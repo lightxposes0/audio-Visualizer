@@ -24,7 +24,37 @@ body .fileSelectionPanel {
           align-items: center;
 }
 
+body .fileSelectionPanel .input_title_artist {
+  margin: 2rem;
+  width: 50%;
+}
+
+body .fileSelectionPanel .input_title_artist input {
+  width: 100%;
+  height: 50px;
+  padding: 1rem;
+  margin: 15px;
+  border-radius: 2rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.22rem;
+}
+
 body .fileSelectionPanel .input_files {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 10px;
+  width: 50%;
+}
+
+body .fileSelectionPanel .input_files .input_individual {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,6 +62,33 @@ body .fileSelectionPanel .input_files {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
+  margin: 10px;
+  width: 40%;
+}
+
+body .fileSelectionPanel .input_files .input_individual input {
+  visibility: hidden;
+  position: inherit;
+  width: 200px;
+  height: 90px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .fileSelectionPanel .input_files .input_individual input::before {
+  content: "Add File";
+  z-index: 10;
+  visibility: initial;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  border-right: 2px solid black;
+  padding: 20px;
+  display: inline-block;
+  position: absolute;
+  margin: 0 auto;
 }
 
 body .songLibrary {
@@ -41,13 +98,8 @@ body .songLibrary {
   display: -ms-grid;
   display: grid;
   gap: 2rem;
-}
-
-@media screen and (min-width: 760px) {
-  body .songLibrary {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-  }
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 body .songInstance {
@@ -82,5 +134,15 @@ body .songInstance h4 {
 
 body .songInstance .song_cover_img {
   width: 250px;
+}
+
+@media screen and (max-width: 760px) {
+  body .songLibrary {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  body .fileSelectionPanel .input_title_artist {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=songviewer.css.map */

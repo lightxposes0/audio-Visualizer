@@ -22,12 +22,69 @@ body {
         // First 2 input fields..
         .input_title_artist {
 
+            margin: 2rem;
+            width: 50%;
+
+            input {
+                width: 100%;
+                height: 50px;
+                padding: 1rem;
+                margin: 15px;
+
+
+                border-radius: 2rem;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-size: 1.22rem;
+            }
         }
 
         // 
         .input_files {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin: 10px;
+
+            width: 50%;
+
+            .input_individual {
+                display: flex;
+                flex-direction: column;
+
+                position: relative;
+
+                margin: 10px;
+
+                width: 40%;
+
+                input {
+                    visibility: hidden;
+                    position: inherit;
+                    width: 200px;
+                    height: 90px;
+                    margin: 5px;
+                    display: flex;
+
+                    &::before {
+                        content: "Add File";
+                        z-index: 10;
+                        visibility: initial;
+
+                        font-size: 1.5rem;
+                        border: 1px solid black;
+                        border-right: 2px solid black;
+                        padding: 20px;
+                        display: inline-block;
+                        position: absolute;
+
+                        margin: 0 auto;
+                        
+
+
+
+                    }
+                }
+            }
         }
 
         //..
@@ -44,11 +101,11 @@ body {
                 // display
         display: grid;
         gap: 2rem;
+        grid-template-columns: repeat(3, 1fr);
+
 
         // media
-        @media screen and (min-width: 760px) {
-            grid-template-columns: repeat(3, 1fr);
-        }
+        
 
     }
 
@@ -89,4 +146,28 @@ body {
 
 
 
+}
+
+
+@media screen and (max-width: 760px) {
+
+    body {
+
+
+        .songLibrary {
+            grid-template-columns: repeat(1, 1fr);
+
+            .songInstance {
+
+            }
+        }
+
+        .fileSelectionPanel {
+
+            .input_title_artist {
+                width: 100%;
+            }
+        }
+    }
+    
 }
