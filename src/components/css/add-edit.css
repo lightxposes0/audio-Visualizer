@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +43,19 @@
 
 .add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader {
   margin-top: 100px;
+  position: inherit;
+}
+
+.add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader::after {
+  content: "Uploading File...";
+  top: 30%;
+  right: 50%;
+  left: 44%;
+  width: 200px;
+  color: white;
+  position: absolute;
+  font-weight: 100;
+  font-size: 1.3rem;
 }
 
 .add_edit_container .add_Edit_Song_container .add_edit_wrapper h2 {
@@ -84,10 +97,12 @@
   border-radius: 0.5rem;
   border: 1px solid #13AEA2;
   color: #FFF;
+  background-color: #13aea14d;
 }
 
 .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus {
   background-color: #13aea190;
+  color: #FFF;
 }
 
 .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::-webkit-input-placeholder {
@@ -130,8 +145,10 @@
           align-items: center;
   color: #FFF;
   margin-bottom: 1rem;
-  width: 100px;
-  height: 40px;
+  width: 150px;
+  height: 45px;
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 0.5rem;
   background-color: #BE3030;
@@ -151,14 +168,15 @@
 }
 
 .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn {
-  width: 100px;
-  height: 40px;
+  width: 150px;
+  height: 45px;
   border-radius: 0.5rem;
   background-color: #13AEA2;
   border: 0;
   color: #FFF;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: 'Lato', sans-serif;
+  font-weight: 700;
   cursor: pointer;
   -webkit-transition: all .25s ease;
   transition: all .25s ease;

@@ -1,44 +1,91 @@
 
 import React, {useState, useEffect} from 'react';
-import {Storage} from '../firebase';
+import {Storage, db} from '../firebase';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Audio } from 'react-loader-spinner';
 import {ScaleLoader} from 'react-spinners';
 import '../components/css/add-edit.css'
-import { ref, uploadBytesResumable} from 'firebase/storage'
+import { getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 
 const initialState = {
     title: "",
     artist: ""
 };
 
-const initialErrors = {
-    title: "",
-    artist: ""
-}
+
 
 const AddEditSong = (e) => {
     const [data, setData] = useState(initialState);
     const {title, artist} = data;
-    console.log(data.title);
     const [file, setFile] = useState(null);
     const [progress, setProgress] = useState(null);
-    const [errors, setErrors] = useState(initialErrors);
+    const [errors, setErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
+
+        // Should run only when a file is being set.. Run only when file is being uploaded. 
         const uploadFile = (e) => {
+            if(!title) {
+                alert("No input fields filled.");
+                return;
+            };
+
             const name = new Date().getTime() + file.name;
-            const storageRef = ref(Storage(), file.name);
+            const storageRef = ref(Storage, 'audioVisualizer/'+ name);
             const uploadTask = uploadBytesResumable(storageRef, file);
 
-        }
-    }, [file])
+
+            uploadTask.on("state_changed", (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setProgress(progress);
+
+
+                switch(snapshot.state) {
+                    case "paused":
+                        console.log("Uploading paused..");
+                        break;
+                    case "running":
+                        console.log("Upload is running");
+                        break;
+
+
+                    default:
+                        break; 
+                    
+                }
+                }, (error) => {
+                    console.log(error)
+                }, () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        console.log("link to file:::", downloadURL);
+                        // save link to firestore database
+                        setData((prev) => ({...prev, audio: downloadURL}));
+                        setIsSubmit(false);
+
+
+
+                    });
+                })
+
+
+
+            // Start loader as the file is uploading to database / storage..
+            /// Do something....
+
+        };
+        // triggers when file is SET
+        file && uploadFile()
+
+
+    }, [file]);
 
     // Take input (title, artist) and store in DATA..
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value});
-    }
+    };
 
     const validate = () => {
         let errors = {};
@@ -58,23 +105,28 @@ const AddEditSong = (e) => {
     };
 
     // Handle the submit + upload file... loading..
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         let errors = validate();
+        if(Object.keys(errors).length) return setErrors(errors);
 
-        if (Object.keys(errors).length)
-        console.log(errors);
-
-
-        return setErrors(errors);
+        setIsSubmit(true);
+        await addDoc(collection(db, "songs"), {
+            ...data,
+            timestamp: serverTimestamp()
+        })
+        navigate("/");
     };
 
     return (
         <div className='add_edit_container'>
             <div className='add_Edit_Song_container'>
                 <div className='add_edit_wrapper'>
-                    {   isSubmit ? <ScaleLoader className='isSubmit_loader' color="#36d7b7"/>
-                    /* {   isSubmit ? <Audio height="80" width="80" radius="9" color="green" ariaLabel="loading" wrapperStyle wrapperClass/> */
+                    
+                    {  
+                        
+                        isSubmit ? <ScaleLoader className='isSubmit_loader' color="#36d7b7"/>
+
                         :
                         (
                             <>
@@ -84,7 +136,7 @@ const AddEditSong = (e) => {
                                     className='input_text'
                                     autoFocus 
                                     error = {
-                                        errors.title ? { content: errors.title } : null}
+                                        errors.artist ? { content: errors.artist } : null}
                                     type="text" 
                                     label="Title" 
                                     placeholder="Enter title.." 
@@ -101,7 +153,7 @@ const AddEditSong = (e) => {
                                     value={artist} 
                                     onChange={handleChange} />
                                 <div className='wrap_upload_submit'>
-                                    <label for="uploadinput" className='upload_file_label'>Upload File</label>
+                                    <label for="uploadinput" className='upload_file_label'>Audio File</label>
                                     <input  
                                         id='uploadinput'
                                         name='uploadinput'
@@ -110,8 +162,9 @@ const AddEditSong = (e) => {
                                         label="Upload" 
                                         accept='audio/*'
 
-                                        onChange={(e) => setFile(e.target.files[0])} />
-                                    <button className='add_edit_submit_btn' primary type="submit">Submit</button>
+                                        onChange={(e) => {setFile(e.target.files[0]); setIsSubmit(true);}} />
+
+                                    <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>
                                 </div>
                             </form>
                             </>

@@ -1,6 +1,5 @@
 @import './variables';
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
 * {
     margin:0;
     padding: 0;
@@ -30,6 +29,19 @@
 
             .isSubmit_loader {
                 margin-top: 100px;
+                position: inherit;
+                &::after {
+                    content: "Uploading File...";
+                    top: 30%;
+                    
+                    right: 50%;
+                    left: 44%;
+                    width: 200px;
+                    color: white;
+                    position: absolute;
+                    font-weight: 100;
+                    font-size: 1.3rem;
+                }
             }
 
             h2 {
@@ -65,17 +77,20 @@
 
                     outline: none;
                     border-radius: 0.5rem;
-                    border: 1px solid $nav_BlueColor;
+                    border: 1px solid $button_blue;
                     color: $primary_white;
+                    background-color: $input_second_focus;
 
                     &:focus{
                         background-color: $input_focus;
+                        color: $primary_white;
                         &::placeholder {
                             opacity: 1;
                             color: $primary_white;
+
                         }        
                     }
-                    
+                
 
                 }
 
@@ -89,8 +104,10 @@
                         align-items: center;
                         color: $primary_white;
                         margin-bottom: 1rem;
-                        width: 100px;
-                        height: 40px;
+                        width: 150px;
+                        height: 45px;
+                        font-size: 1.2rem;
+                        font-weight: 700;
                         cursor: pointer;
                         border-radius: 0.5rem;
                         background-color: $button_upload_red;
@@ -110,14 +127,15 @@
                     }
     
                     .add_edit_submit_btn {
-                        width: 100px;
-                        height: 40px;
+                        width: 150px;
+                        height: 45px;
                         border-radius: 0.5rem;
-                        background-color: $nav_BlueColor;
+                        background-color: $button_blue;
                         border: 0;
                         color: $primary_white;
-                        font-size: 1rem;
+                        font-size: 1.2rem;
                         font-family: 'Lato', sans-serif;
+                        font-weight: 700;
                         cursor: pointer;
                         transition: all .25s ease;
         
