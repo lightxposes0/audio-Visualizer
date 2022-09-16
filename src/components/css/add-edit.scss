@@ -97,37 +97,47 @@
                 .wrap_upload_submit {
 
                     display: flex;
-                    justify-content: space-around;
-                    .upload_file_label {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        color: $primary_white;
-                        margin-bottom: 1rem;
-                        width: 150px;
-                        height: 45px;
-                        font-size: 1.2rem;
-                        font-weight: 700;
-                        cursor: pointer;
-                        border-radius: 0.5rem;
-                        background-color: $button_upload_red;
-                        z-index: 100;
+                    flex-direction: column;
+                    width: 100%;
 
-                        &:hover {
-                            background-color: $addsongbuttonhover;
-                        }
-                        &:active {
-                            background-color: $addsongbuttonactive;
-                        }
-                        
-                    }
+                    .input_files_btns {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .upload_file_label {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color: $primary_white;
+                            margin-bottom: 2rem;
+                            width: 45%;
+                            height: 45px;
+                            font-size: 1.2rem;
+                            font-weight: 700;
+                            cursor: pointer;
+                            border-radius: 0.5rem;
+                            background-color: $button_upload_red;
+                            z-index: 100;
     
-                    .input_file {
-                        display: none;
+                            &:hover {
+                                background-color: $addsongbuttonhover;
+                            }
+                            &:active {
+                                background-color: $addsongbuttonactive;
+                            }
+                            
+                        }
+        
+                        .input_file {
+                            display: none;
+                        }
+
                     }
+
     
                     .add_edit_submit_btn {
-                        width: 150px;
+                        align-self: center;
+                        width: 100%;
                         height: 45px;
                         border-radius: 0.5rem;
                         background-color: $button_blue;

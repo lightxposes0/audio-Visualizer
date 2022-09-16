@@ -23,6 +23,69 @@ const AddEditSong = (e) => {
     const [isSubmit, setIsSubmit] = useState(false);
     const navigate = useNavigate();
 
+    // after merge,   NEW FEATURE == new button for IMG..
+    const [imageFile, setImageFile] = useState(null);
+    // Run on state change for image upload...
+    useEffect(() => {
+
+        // Should run only when a file is being set.. Run only when file is being uploaded. 
+        const uploadFile = (e) => {
+            if(!title) {
+                alert("No input fields filled.");
+                return;
+            };
+
+            const name = new Date().getTime() + imageFile.name;
+            const storageRef = ref(Storage, 'audioVisualizer/images/'+ name);
+            const uploadTask = uploadBytesResumable(storageRef, imageFile);
+
+
+            uploadTask.on("state_changed", (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                setProgress(progress);
+
+
+                switch(snapshot.state) {
+                    case "paused":
+                        console.log("Uploading image paused..");
+                        break;
+                    case "running":
+                        console.log("Upload image is running");
+                        break;
+
+
+                    default:
+                        break; 
+                    
+                }
+                }, (error) => {
+                    console.log(error)
+                }, () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURLimage) => {
+                        console.log("link to image-file:", downloadURLimage);
+                        // save link to firestore database
+                        setData((prev) => ({...prev, image: downloadURLimage}));
+                        setIsSubmit(false);
+
+
+
+                    });
+                })
+
+
+
+            // Start loader as the file is uploading to database / storage..
+            /// Do something....
+
+        };
+        // triggers when file is SET
+        file && uploadFile()
+
+
+    }, [imageFile]);
+
+
+
 
     useEffect(() => {
 
@@ -34,7 +97,7 @@ const AddEditSong = (e) => {
             };
 
             const name = new Date().getTime() + file.name;
-            const storageRef = ref(Storage, 'audioVisualizer/'+ name);
+            const storageRef = ref(Storage, 'audioVisualizer/audio/'+ name);
             const uploadTask = uploadBytesResumable(storageRef, file);
 
 
@@ -153,16 +216,31 @@ const AddEditSong = (e) => {
                                     value={artist} 
                                     onChange={handleChange} />
                                 <div className='wrap_upload_submit'>
-                                    <label for="uploadinput" className='upload_file_label'>Audio File</label>
-                                    <input  
-                                        id='uploadinput'
-                                        name='uploadinput'
-                                        className='input_file'
-                                        type="file" 
-                                        label="Upload" 
-                                        accept='audio/*'
+                                    <div className='input_files_btns'>
+                                        <label for="uploadinput" className='upload_file_label'>Audio File</label>
+                                        <input  
+                                            id='uploadinput'
+                                            name='uploadinput'
+                                            className='input_file'
+                                            type="file" 
+                                            label="Upload" 
+                                            accept='audio/*'
 
-                                        onChange={(e) => {setFile(e.target.files[0]); setIsSubmit(true);}} />
+                                            onChange={(e) => {setFile(e.target.files[0]); setIsSubmit(true);}} />
+
+
+                                            {/* IMG file */}
+                                        <label for="uploadimageinput" className='upload_file_label'>Cover photo</label>
+                                        <input  
+                                            id='uploadimageinput'
+                                            name='uploadinput'
+                                            className='input_file'
+                                            type="file" 
+                                            label="Upload" 
+                                            accept='image/*'
+
+                                            onChange={(e) => {setImageFile(e.target.files[0]); setIsSubmit(true);}} />
+                                    </div>
 
                                     <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>
                                 </div>
