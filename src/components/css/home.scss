@@ -1,0 +1,21 @@
+@import '../css/variables';
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+
+}
+
+.home_wrapper {
+    background-color: $nav_background;
+    width: 100vw;
+    height: 91vh;
+    color: $primary_white;
+
+    font-family: 'Lato';
+    padding-top: 20px;
+
+}
