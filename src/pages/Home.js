@@ -1,36 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import '../components/css/home.css';
+import '../components/css/home/home.css';
 import {collection, getDocs, onSnapshot} from 'firebase/firestore';
 import {db} from '../firebase'
 import { useNavigate } from 'react-router-dom';
-import {ScaleLoader} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
+import wavesurfaudio from "../components/wave"
+import "../components/script.js"
+
 
 
 const Home = () => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
-  //  const songsCollectionReference = collection(db, "songs");
-    ///// test
-    // useEffect(  ()  => {
-
-    //     // Create the funtion that grab´s the data from our database, logs them to console, and pushes the data into our useState. 
-    //     const getSongs = async () => {
-    //     const data = await getDocs(songsCollectionReference);
-    //     // console.log("Data retrieved from the firebase firestore database:" + data)
-    //         setSongs(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-    //     };   
-    //     // On page load, our function will run, and our data will sync asap on our website. 
-        
-        
-    //     getSongs()
-        
-    //     }, []);
-        
-
-
-    ////// test
 
 
     useEffect(() => {
@@ -61,7 +43,7 @@ const Home = () => {
         <div className='home_wrapper'>
             <>
                 {loading ? 
-                <ScaleLoader className='isSubmit_loader' color="#36d7b7"/>
+                    <ClipLoader color="#36d7b7" />
                 :
 
                     <div className='homepage_container'>
@@ -73,14 +55,19 @@ const Home = () => {
 
                                         <h2>{data.title}</h2>
                                         <h4>{data.artist}</h4>
-
-                                        <audio className='audio_file' src={data.audio}></audio>
+                                        {wavesurfaudio(data.audio)}
+                                        {/* <Waveform className="audio_file" audio={data.audio}/> */}
                                     </div>
 
                                     <div className='card_content_extra'>
                                         <button onClick={() => navigate('/update/${data.id}')}>Edit</button>
                                         <button >Listen</button>
                                     </div>
+
+                                    <div id="waveform"></div>
+                                        <button class="btn btn-primary" onclick="wavesurfer.playPause()">
+                                        <i class="glyphicon glyphicon-play"></i>Play/Pause
+                                        </button>
                                 </article>
                             )
                         })}

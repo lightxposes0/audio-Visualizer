@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {Storage, db} from '../firebase';
 import { useParams, useNavigate } from 'react-router-dom';
 import {ScaleLoader} from 'react-spinners';
-import '../components/css/add-edit.css'
+import '../components/css/addEdit/add-edit.css'
 import { getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 

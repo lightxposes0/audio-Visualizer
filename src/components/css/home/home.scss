@@ -1,0 +1,41 @@
+@import '../variables';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+
+}
+
+.home_wrapper {
+    background-color: $background_dark;
+    width: 100%;
+    height: 100vh;
+    color: $primary_white;
+
+    font-family: 'Lato';
+    padding-top: 20px;
+
+    .homepage_container {
+        width: 60vw;
+        display: flex;
+        .card {
+            width: 60%;
+            .card_content {
+
+                .audio_file {
+                    background-color: blue;
+                    z-index: 100;
+                }
+                .card_image {
+                    width: 100px;
+                }
+                
+            }
+        }
+    }
+
+}
+
+
