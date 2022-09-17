@@ -14,4 +14,12 @@
   font-family: 'Lato';
   padding-top: 20px;
 }
+
+.home_wrapper .homepage_container .card {
+  width: 60%;
+}
+
+.home_wrapper .homepage_container .card .card_content .card_image {
+  width: 100px;
+}
 /*# sourceMappingURL=home.css.map */
