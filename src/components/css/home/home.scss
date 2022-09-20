@@ -18,16 +18,23 @@
     padding-top: 20px;
 
     .homepage_container {
-        width: 60vw;
+        width: 90vw;
         display: flex;
         .card {
             width: 60%;
             .card_content {
+                display: flex;
 
-                .audio_file {
-                    background-color: blue;
-                    z-index: 100;
+
+
+                .audio_wrapper {
+                    // background-color: rgb(92, 91, 91);
+                    min-width: 200px;
+                    width: 600px;
+                    height: 150px;
                 }
+
+                
                 .card_image {
                     width: 100px;
                 }

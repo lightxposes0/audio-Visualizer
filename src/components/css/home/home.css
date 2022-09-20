@@ -16,7 +16,7 @@
 }
 
 .home_wrapper .homepage_container {
-  width: 60vw;
+  width: 90vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,9 +26,16 @@
   width: 60%;
 }
 
-.home_wrapper .homepage_container .card .card_content .audio_file {
-  background-color: blue;
-  z-index: 100;
+.home_wrapper .homepage_container .card .card_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.home_wrapper .homepage_container .card .card_content .audio_wrapper {
+  min-width: 200px;
+  width: 600px;
+  height: 150px;
 }
 
 .home_wrapper .homepage_container .card .card_content .card_image {
