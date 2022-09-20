@@ -9,36 +9,156 @@
 .home_wrapper {
   background-color: #06041E;
   width: 100%;
-  height: 100vh;
-  color: #FFF;
+  height: 100%;
+  color: #d5d5d5;
   font-family: 'Lato';
   padding-top: 20px;
-}
-
-.home_wrapper .homepage_container {
-  width: 90vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home_wrapper .homepage_container {
+  width: 75vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .home_wrapper .homepage_container .card {
-  width: 60%;
+  width: 100%;
+  margin: 1rem auto 1rem;
+  background-color: #555255;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 1rem;
 }
 
 .home_wrapper .homepage_container .card .card_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
+}
+
+.home_wrapper .homepage_container .card .card_content .song_info {
+  position: absolute;
+  margin-left: 165px;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 10;
+}
+
+.home_wrapper .homepage_container .card .card_content .song_info h2, .home_wrapper .homepage_container .card .card_content .song_info h4 {
+  padding: 2px 20px;
+  color: white;
+  border-radius: 2rem;
+  position: relative;
+}
+
+.home_wrapper .homepage_container .card .card_content .song_info h2 {
+  font-size: 1.2rem;
+}
+
+.home_wrapper .homepage_container .card .card_content .song_info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.home_wrapper .homepage_container .card .card_content .song_info::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(46, 46, 46, 0.606);
+  border-radius: 0.4rem;
 }
 
 .home_wrapper .homepage_container .card .card_content .audio_wrapper {
   min-width: 200px;
   width: 600px;
-  height: 150px;
+  height: 160px;
+}
+
+.home_wrapper .homepage_container .card .card_content .audio_wrapper .audio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  position: relative;
+}
+
+.home_wrapper .homepage_container .card .card_content .audio_wrapper .audio .audioKnobs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+
+.home_wrapper .homepage_container .card .card_content .audio_wrapper .audio .audioKnobs .playButton {
+  font-size: 2rem;
+  margin: 2px 15px 5px 15px;
 }
 
 .home_wrapper .homepage_container .card .card_content .card_image {
-  width: 100px;
+  width: 160px;
+  height: 160px;
+  border-radius: 0.6rem;
+}
+
+.home_wrapper .homepage_container .card .card_content_extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home_wrapper .homepage_container .card .card_content_extra .updateButton {
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 15px;
+}
+
+@media screen and (max-width: 850px) {
+  .home_wrapper .homepage_container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
 }
 /*# sourceMappingURL=home.css.map */

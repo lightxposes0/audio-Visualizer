@@ -5,6 +5,9 @@ import {db} from '../firebase'
 import { useNavigate } from 'react-router-dom';
 import {ClipLoader} from 'react-spinners';
 import AudioVisualizer from "../components/AudioVisualizer"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -68,8 +71,10 @@ const Home = () => {
                                     </div>
 
                                     <div className='card_content_extra'>
-                                        <button onClick={() => navigate('/update/${data.id}')}>Edit</button>
-                                        <button >Listen</button>
+                                        
+                                        <FontAwesomeIcon className="updateButton" onClick={() => navigate('/update/${data.id}')} icon={faPen} />
+
+                                        {/* <button >Listen</button> */}
                                     </div>
 
                                     {/* <div id="waveform"></div>
