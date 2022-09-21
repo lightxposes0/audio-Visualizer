@@ -11,7 +11,7 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const Home = () => {
+const Home = (props) => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -50,6 +50,7 @@ const Home = () => {
                 :
 
                     <div className='homepage_container'>
+                    <h1 className='homeTitleSongs'>Songs</h1>
 
                         {   songs.map((data) => {
 

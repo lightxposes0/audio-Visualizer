@@ -5,8 +5,8 @@ import Home from './pages/Home';
 import NavBar from './components/NavBar';
 
 
-
 const App = () => {
+
     return (
         <BrowserRouter>
             <div className='app'>
@@ -14,10 +14,10 @@ const App = () => {
                 <NavBar/>
 
                 <Routes>
-                    <Route path="/" element={<Home/>} />
-                    <Route path="/add" element={<AddEditSong/>} />
-                    <Route path="/update/:id" element={<AddEditSong/>} />
-                    <Route path="/audio-Visualizer" element={<Home/>} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/add" element={<AddEditSong />} />
+                    <Route path="/update/:id" element={<AddEditSong />} />
+                    <Route path="/audio-Visualizer" element={<Home />} />
                 </Routes>
             </div>
         </BrowserRouter>
