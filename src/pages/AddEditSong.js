@@ -79,7 +79,7 @@ const AddEditSong = (e) => {
 
         };
         // triggers when file is SET
-        file && uploadFile()
+        imageFile && uploadFile()
 
 
     }, [imageFile]);
@@ -95,7 +95,6 @@ const AddEditSong = (e) => {
                 alert("No input fields filled.");
                 navigate("/add");
             };
-            console.log("KJØRER LIKEVEL");
             const name = new Date().getTime() + file.name;
             const storageRef = ref(Storage, 'audioVisualizer/audio/'+ name);
             const uploadTask = uploadBytesResumable(storageRef, file);

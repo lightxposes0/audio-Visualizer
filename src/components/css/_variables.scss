@@ -1,18 +1,29 @@
 $font-stack: Helvetica, sans-serif;
 
 // Primary background
-$background_dark: #06041E;
-$primary_white: rgb(213, 213, 213);
-$bright_white: rgb(255, 255, 255);
+$background_dark: #06041E; // background clr,, primary used in => Home.js
+
+
+
+
+#light {
+// Primary background
+$background_dark: #d9d9d9; // background clr,, primary used in => Home.js
+
+
+$primary_white: rgb(213, 213, 213); // objects and text color => Home.js
+$bright_white: rgb(255, 255, 255); // used for title, text etc.. => Home.js
 
 // Button
-$button_blue: #13AEA2;
+$button_blue: #13AEA2; // used for button´s and box shadow => Home.js
 $button_upload_red: #BE3030;
-$addsongbuttonhover: #C6556B;
+$addsongbuttonhover: #C6556B; // 
 $addsongbuttonactive: #ECA4A3;
+$input_second_focus: #13aea14d;
+
+$red: rgb(255,0,0); // used in button toggle play/pause => Home.js
 
 $input_focus: #13aea190;
-$input_second_focus: #13aea14d;
 $pink_blush: #D7838B;
 $nav_img_hover: #dbcdc423;
 $nav_img_bg: #dbcdc4;
@@ -25,3 +36,40 @@ $guling: #f7de1c;
 
 // unused
 $nav_lightBlueColor: #2FCEB8;
+
+
+}
+
+#dark {
+// Primary background
+$background_dark: #06041E; // background clr,, primary used in => Home.js
+
+
+$primary_white: rgb(213, 213, 213); // objects and text color => Home.js
+$bright_white: rgb(255, 255, 255); // used for title, text etc.. => Home.js
+
+// Button
+$button_blue: #13AEA2; // used for button´s and box shadow => Home.js
+$button_upload_red: #BE3030;
+$addsongbuttonhover: #C6556B; // 
+$addsongbuttonactive: #ECA4A3;
+$input_second_focus: #13aea14d;
+
+$red: rgb(255,0,0); // used in button toggle play/pause => Home.js
+
+$input_focus: #13aea190;
+$pink_blush: #D7838B;
+$nav_img_hover: #dbcdc423;
+$nav_img_bg: #dbcdc4;
+$nav_line: #572845;
+$nav_newyork_pink: #e58e8f95;
+$test: #555255;
+
+$guling: #f7de1c;
+
+
+// unused
+$nav_lightBlueColor: #2FCEB8;
+
+
+}

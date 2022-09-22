@@ -144,26 +144,23 @@
   margin: 15px 10px;
   position: absolute;
   top: -20px;
-  z-index: 3;
+  background-color: transparent;
+  border: 0;
+  z-index: 30;
+  cursor: pointer;
+}
+
+.home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .activeButton {
+  color: red;
+}
+
+.home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .notActiveButton {
+  color: #d5d5d5;
 }
 
 .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
   font-size: 2.5rem;
   margin: 8px;
-  cursor: pointer;
-}
-
-.home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton:active, .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton:focus {
-  color: red;
-}
-
-.home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-.home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .activeButton {
-  color: red;
 }
 
 .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper::after {
@@ -181,11 +178,13 @@
 .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs input {
   margin-left: 140px;
   margin-bottom: 8px;
+  z-index: 30;
 }
 
 .home_wrapper .homepage_container .card .card_content .card_image {
   width: 160px;
   height: 160px;
+  margin-right: 10px;
   border-radius: 1rem;
 }
 
