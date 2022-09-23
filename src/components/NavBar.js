@@ -1,7 +1,6 @@
 import React from 'react'
 import {useNavigate, Link} from "react-router-dom";
 import logo from "../asset/testttt.png"
-import "../components/css/navbar/navbar.css"
 
 const NavBar = () => {
     const navigate = useNavigate();
@@ -10,6 +9,7 @@ const NavBar = () => {
         // Margin bottom: 20px, padding: 0.3rem
         <div className='navBarMenu'>
             <div className="navBarContainer">
+            
                 <div className='navBarItemWrap'>
                     <div  className="navBarItem">
                     <Link to="/">

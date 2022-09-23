@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap");
+:root {
+  --color-page-background: #fff;
+  --color-text: #06041E;
+  --card-bg: #ffffffde;
+  --card-box-border: rgb(81, 81, 81);
+}
+
 * {
   margin: 0;
   padding: 0;

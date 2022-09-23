@@ -2,9 +2,9 @@ import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import wavesurfer from 'wavesurfer.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { faCirclePlay, faCirclePause } from "@fortawesome/free-solid-svg-icons";
-
+import {ThemeContext} from '../App'
+import { useContext } from 'react';
 
 
 
@@ -23,13 +23,17 @@ const AudioVisualizer = (props) => {
     const audioRef = useRef(null);
     const audioTrackRef= useRef(undefined);
 
+    const audioColor = useContext(ThemeContext)
+    let  audioColorr = audioColor.theme;
+
+
 
     useEffect(()=>{
         if (audioRef.current){
                 audioTrackRef.current = wavesurfer.create({
                 container: audioRef.current,
                 progressColor: "#13AEA2",
-                waveColor: "#eeee",
+                waveColor: "eeee",
                 cursorColor: "OrangeRed",
                 preload: true,
                 backend: "MediaElement",
@@ -49,6 +53,12 @@ const AudioVisualizer = (props) => {
     }, [])   
     
 
+    useEffect(() => {
+        audioColorr === "light" ? audioTrackRef.current.backend.params.waveColor = "red" : audioTrackRef.current.backend.params.waveColor = "red";
+    
+        
+
+    }, []);
 
 
 

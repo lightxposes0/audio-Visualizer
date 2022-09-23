@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap");
+:root {
+  --color-page-background: #fff;
+  --color-text: #06041E;
+  --card-bg: #ffffffde;
+  --card-box-border: rgb(81, 81, 81);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +16,7 @@
   height: 80px;
   padding: 0.3rem;
   background-color: #06041E;
-  color: #FFF;
+  color: #d5d5d5;
   position: relative;
 }
 
@@ -72,7 +79,7 @@
   border-radius: 0.5rem;
   background-color: #13AEA2;
   border: 0;
-  color: #FFF;
+  color: #d5d5d5;
   font-size: 1rem;
   font-family: 'Lato', sans-serif;
   cursor: pointer;

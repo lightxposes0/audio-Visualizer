@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import '../components/css/home/home.css';
-import {collection, getDocs, onSnapshot} from 'firebase/firestore';
+import {collection, deleteDoc, getDocs, onSnapshot} from 'firebase/firestore';
 import {db} from '../firebase'
 import { useNavigate } from 'react-router-dom';
 import {ClipLoader} from 'react-spinners';
 import AudioVisualizer from "../components/AudioVisualizer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { doc } from 'firebase/firestore';
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -33,6 +32,7 @@ const Home = (props) => {
             (error) => {
                 console.log(error);
             }
+
         );
 
         return () => {
@@ -40,6 +40,22 @@ const Home = (props) => {
         };
         
     }, []);
+
+    const [idHolder, setId] = useState(null);
+
+    const handleDelete = async ({id}) => {
+        console.log({id});
+        console.log(idHolder);
+        if (window.confirm("Are you sure you want to delete this song?")) {
+            try {
+                await deleteDoc(doc(db, "songs", id));
+                setSongs(songs.filter((song) => song.id !== id));
+            } catch(error) {
+                console.log(error);
+            }
+        };
+
+    };
     
     return (
         <div className='home_wrapper'>
@@ -53,6 +69,7 @@ const Home = (props) => {
                     <h1 className='homeTitleSongs'>Songs</h1>
 
                         {   songs.map((data) => {
+                            {console.log(data)}
 
                             return (
                                 <article key={data.id} className='card'>
@@ -73,7 +90,21 @@ const Home = (props) => {
 
                                     <div className='card_content_extra'>
                                         
-                                        <FontAwesomeIcon className="updateButton" onClick={() => navigate('/update/${data.id}')} icon={faPen} />
+                                        <FontAwesomeIcon className="updateButton" onClick={() => navigate('/update/' + data.id)} icon={faPen} />
+                                        <FontAwesomeIcon className="updateButton" 
+                                        onClick={() => {
+                                            if (window.confirm("Are you sure you want to delete this song?")) {
+                                                try  {
+                                                    deleteDoc(doc(db, "songs", data.id))
+                                                    } catch (error)  {console.log(error)}}
+                                                
+
+                                        
+
+                                        }} icon={faPen} />
+
+
+
 
                                         {/* <button >Listen</button> */}
                                     </div>
@@ -95,3 +126,13 @@ const Home = (props) => {
 export default Home
 
 
+
+
+// if (window.confirm("Are you sure you want to delete this song?")) {
+//     try {
+//         deleteDoc(doc(db, "songs", props.id));
+//         setSongs(songs.filter((song) => props.id !== props.id));
+//     } catch(error) {
+//         console.log(error);
+//     }
+// };

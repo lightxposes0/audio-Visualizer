@@ -1,0 +1,63 @@
+
+    // darkmode
+    .label {
+        width: 50px;
+        height: 26px;
+        background-color:#111;
+        display: flex;
+        border-radius:50px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        position: relative;
+        transform: scale(1.5);
+        top: 100px;
+        left: 50px;
+    }
+    
+    .buttonToggleDarkmode {
+        position: absolute;
+        left: 20px;
+        z-index: 100;
+    }
+    
+    .ball {
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        position: absolute;
+        top: 2px;
+        left: 26px;
+        border-radius: 50%;
+        transition: transform 0.2s linear;
+    }
+    /*  target the elemenent after the label*/
+    
+    .checkbox:checked + .label .ball{
+        transform: translateX(-24px);
+    }
+    
+    .checkbox {
+        visibility: hidden;
+    }
+    
+    .fa-moon {
+        color: pink;
+    }
+    
+    .fa-sun {
+        color: yellow;
+    }
+    
+@media screen and (min-width: 800px){
+    .label {
+        left: 200px;
+    }
+
+}
+@media screen and (min-width: 1400px){
+    .label {
+        left: 330px;
+    }
+
+}
