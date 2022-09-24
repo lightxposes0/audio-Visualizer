@@ -1,6 +1,5 @@
 @import './variables';
-@import './darkmode/darkmodeButton';
-@import './darkmode/darkmode';
+@import './darkmode//darkmode';
 @import './darkmode/lightMode';
 
 
@@ -12,6 +11,3 @@
     transition: background 0.2s linear;
 
 }
-
-
-

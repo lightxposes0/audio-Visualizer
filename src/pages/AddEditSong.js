@@ -29,6 +29,22 @@ const AddEditSong = (e) => {
 
 
 
+
+    useEffect(() => {
+        let authToken = sessionStorage.getItem('Auth Token')
+
+        if (authToken) {
+            navigate('/add')
+        }
+
+        if (!authToken) {
+            navigate('/login')
+        }
+    });
+
+
+
+
     useEffect(() => {
         id && getSingleUser()
     }, [id]);

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {collection, deleteDoc, getDocs, onSnapshot} from 'firebase/firestore';
 import {db} from '../firebase'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Routes, Route, BrowserRouter } from 'react-router-dom';
 import {ClipLoader} from 'react-spinners';
 import AudioVisualizer from "../components/AudioVisualizer"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { doc } from 'firebase/firestore';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -14,6 +14,19 @@ const Home = (props) => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+
+    useEffect(() => {
+        let authToken = sessionStorage.getItem('Auth Token')
+
+        if (authToken) {
+            navigate('/home')
+        }
+
+        if (!authToken) {
+            navigate('/login')
+        }
+    });
 
 
     useEffect(() => {
@@ -43,19 +56,10 @@ const Home = (props) => {
 
     const [idHolder, setId] = useState(null);
 
-    const handleDelete = async ({id}) => {
-        console.log({id});
-        console.log(idHolder);
-        if (window.confirm("Are you sure you want to delete this song?")) {
-            try {
-                await deleteDoc(doc(db, "songs", id));
-                setSongs(songs.filter((song) => song.id !== id));
-            } catch(error) {
-                console.log(error);
-            }
-        };
-
-    };
+    const handleLogout = () => {
+        sessionStorage.removeItem('Auth Token');
+        navigate('/login')
+    }
     
     return (
         <div className='home_wrapper'>
@@ -67,9 +71,9 @@ const Home = (props) => {
 
                     <div className='homepage_container'>
                     <h1 className='homeTitleSongs'>Songs</h1>
+                    <button onClick={handleLogout}>Logout</button>
 
                         {   songs.map((data) => {
-                            {console.log(data)}
 
                             return (
                                 <article key={data.id} className='card'>
