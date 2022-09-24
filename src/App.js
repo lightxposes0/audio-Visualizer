@@ -1,15 +1,15 @@
 import React from 'react';
-import {BrowserRouter, Routes, Route, useNavigate, Navigate} from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate} from "react-router-dom";
 import AddEditSong from './pages/AddEditSong';
 import Home from './pages/Home';
+import HomeAdmin from './pages/HomeAdmin';
 import NavBar from './components/NavBar';
 
 import { createContext, useState, useEffect } from 'react';
 import './components/css/App.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
+
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 
 import Form from './components/common/Form'
 
@@ -20,7 +20,7 @@ export const ThemeContext = createContext(null);
 export const ColorContext = createContext(null)
 
 const App = () => {
-    const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState("light");
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     let navigate = useNavigate();
@@ -37,12 +37,15 @@ const App = () => {
     // handle login
     const handleAction = (id) => {
         const authentication = getAuth();
+        console.log(email)
+
         if (id === 2) {
             createUserWithEmailAndPassword(authentication, email, password)
             .then((response) => {
-                Navigate("/home");
+                navigate('/home')
                 sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
             })
+
         }
 
         if (id === 1) {
@@ -52,6 +55,22 @@ const App = () => {
                 sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
             })
         }
+
+        if (id === 3) {
+
+            if (email == "stian.larsen@mac.com") {
+            signInWithEmailAndPassword(authentication, email, password)
+            .then((response) => {
+                navigate('/adminHome')
+                sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+            })
+            } else {
+                alert("You have no access here...");
+                navigate('/home');
+            }
+        }
+
+
     }
 
     const toggleTheme = () => {
@@ -99,8 +118,16 @@ const App = () => {
                                                                 title="Register" />} 
 
                                                                 />
+                            <Route path='/admin' element={<Form 
+                                                                setEmail={setEmail}
+                                                                setPassword={setPassword} 
+                                                                handleAction = {() => handleAction(3)}
+                                                                title="Do some admin stuff" />} 
+
+                                                                />
                             <Route path="/" element={<Home theme = {theme} />} />
                             <Route path="/home" element={<Home theme = {theme} />} />
+                            <Route path="/adminHome" element={<HomeAdmin theme = {theme} />} />
                             <Route path="/add" element={<AddEditSong />} />
                             <Route path="/update/:id" element={<AddEditSong />} />
                             <Route path="/audio-Visualizer" element={<Home />} />

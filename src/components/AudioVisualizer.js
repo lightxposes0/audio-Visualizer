@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import wavesurfer from 'wavesurfer.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay, faCirclePause } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay, faCirclePause, faTrash } from "@fortawesome/free-solid-svg-icons";
 import {ThemeContext} from '../App'
 import { useContext } from 'react';
 
@@ -10,11 +10,9 @@ import { useContext } from 'react';
 
 
 const AudioVisualizer = (props) => {
-    // const [playing, setPlay] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false)
     const [volume, setVolume] = useState(0.5);
     
-    const [icon, setIcon] = useState(faCirclePlay);
     
     const playButton = faCirclePlay;
     const pauseButton = faCirclePause;
@@ -24,19 +22,21 @@ const AudioVisualizer = (props) => {
     const audioTrackRef= useRef(undefined);
 
     const audioColor = useContext(ThemeContext)
+
+    // if i want to change the audio waveform color later on, driven by the "theme" darkmode/lightmode switch::
     let  audioColorr = audioColor.theme;
 
 
-
+    // Create audio waveform object, and load song from database..
     useEffect(()=>{
         if (audioRef.current){
                 audioTrackRef.current = wavesurfer.create({
                 container: audioRef.current,
                 progressColor: "#13AEA2",
-                waveColor: "eeee",
+                waveColor: "red",
                 cursorColor: "OrangeRed",
                 preload: true,
-                backend: "MediaElement",
+                backend: "WebAudio", // originally = "MediaElement"
                 barWidth: 2,
                 barHeight: 1, // the height of the wave
                 fillParent: true,
@@ -47,22 +47,19 @@ const AudioVisualizer = (props) => {
             audioTrackRef.current.load(props.audio);
 
         
-
-            // audioTrack.load(props.audio);
         }
     }, [])   
     
 
-    useEffect(() => {
-        audioColorr === "light" ? audioTrackRef.current.backend.params.waveColor = "red" : audioTrackRef.current.backend.params.waveColor = "red";
-    
-        
-
-    }, []);
-
+    // DarkMode // LightMode === => Only used if you want to change color... i like the color red for both light an ddark for now..
+    // Uncomment down below for theme driven wavform color! :)!
+    // useEffect(() => {
+    //     audioColorr === "light" ? audioTrackRef.current.backend.params.waveColor = "red" : audioTrackRef.current.backend.params.waveColor = "red";
+    // }, []);
 
 
-    // Change volume form input-slider
+
+    // Change volume from:: form input-slider
     const onVolumeChange = e => {
         const { target } = e;
         const newVolume = +target.value;
@@ -101,7 +98,6 @@ const AudioVisualizer = (props) => {
     
     };
 
-    // FontAwesomeIcon => onClick change icon + pause/play audio. 
     
     return (
         <>
@@ -113,7 +109,7 @@ const AudioVisualizer = (props) => {
                         <FontAwesomeIcon className={ isPlaying ? 'playButton activeButton' : 'playButton notActiveButton'} icon={ isPlaying ? pauseButton : playButton} />
                 </button>
 
-                <input type="range" id="volume" name="volume" min="0.01" max="1" step=".025" onChange={onVolumeChange} defaultValue={volume}/>
+                <input type="range" className='VolumeSlider' id="volume" name="volume" min="0.01" max="1" step=".025" onChange={onVolumeChange} defaultValue={volume}/>
             </div>
         </>
     )

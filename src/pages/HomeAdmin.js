@@ -1,9 +1,13 @@
-import React, { useEffect,  useState } from 'react';
-import {collection,  onSnapshot} from 'firebase/firestore';
+import React, { useEffect, useId, useState, useRef } from 'react';
+import {collection, deleteDoc,  onSnapshot} from 'firebase/firestore';
 import {db} from '../firebase'
 import { useNavigate} from 'react-router-dom';
 import {ClipLoader} from 'react-spinners';
 import AudioVisualizer from "../components/AudioVisualizer"
+import { doc } from 'firebase/firestore';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -17,27 +21,22 @@ const Home = (props) => {
 
 
 
-    // 1. Check if the user is signed in.. 
-    // 2. If user is signed in, => navigate to this /home screen. ELSE: go to log in page..
     useEffect(() => {
         let authToken = sessionStorage.getItem('Auth Token')
 
+
         if (authToken) {
-            navigate('/home')
+            navigate('/adminHome')
 
         
         }
 
         if (!authToken) {
-            navigate('/login')
+            navigate('/admin')
         }
     }, []);
 
 
-
-    // 1. Set loader when data is being collected.. (dynamic loader / spinner)
-    // 2. Retrieve data from database, and push them to an useState Array "songs"
-    // 3. stop loader / spinner, handle errors..
     useEffect(() => {
         setLoading(true);
         const retrieveSongs = onSnapshot(
@@ -52,14 +51,13 @@ const Home = (props) => {
 
             }, 
             (error) => {
-                console.log("Error while retrieving songs...: " + error);
+                console.log(error);
             }
 
         );
 
         return () => {
-            try {retrieveSongs()} 
-            catch(error) {console.log("Error while retrieving songs...: " + error);}
+            try {retrieveSongs();} catch(error){console.log(error);}
             
         };
         
@@ -70,7 +68,6 @@ const Home = (props) => {
 
 
 
-    // Log out
     const handleLogout = () => {
         sessionStorage.removeItem('Auth Token');
         navigate('/login')
@@ -87,9 +84,6 @@ const Home = (props) => {
                     <div className='homepage_container'>
                     <h1 className='homeTitleSongs'>Songs</h1>
                     <button className='logOutButton' onClick={handleLogout}>Logout</button>
-
-
-                    {/* // Map through our song library and display all items on homepage */}
 
                         {   songs.map((data) => {
 
@@ -109,8 +103,39 @@ const Home = (props) => {
                                         </div>
 
                                     </div>
+
+                                    {/* // show when user is OK */}
                                 
 
+                                            
+                                    <div  className='card_content_extra'>
+                                        
+                                        <FontAwesomeIcon className="updateButton" onClick={() => navigate('/update/' + data.id)} icon={faPen} />
+                                        <FontAwesomeIcon className="deleteButton" 
+                                        onClick={() => {
+                                            if (window.confirm("Are you sure you want to delete this song?")) {
+                                                try  {
+                                                    deleteDoc(doc(db, "songs", data.id))
+                                                    } catch (error)  {console.log(error)}}
+                                                
+
+                                        
+
+                                        }} icon={faTrash} />
+
+
+
+
+                                    </div>
+
+                                                
+                                            
+                                            
+                                        
+
+                                
+
+                                
                                 </article>
                             )
                         })}
@@ -122,3 +147,15 @@ const Home = (props) => {
 }
 
 export default Home
+
+
+
+
+// if (window.confirm("Are you sure you want to delete this song?")) {
+//     try {
+//         deleteDoc(doc(db, "songs", props.id));
+//         setSongs(songs.filter((song) => props.id !== props.id));
+//     } catch(error) {
+//         console.log(error);
+//     }
+// };

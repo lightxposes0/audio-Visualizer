@@ -19,10 +19,32 @@
     justify-content: center;
 
     .homepage_container {
-        width: 75vw;
+        width: 60vw;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+
+        @media screen and (min-width: 851px) and (max-width: 1200px) {
+            width: 90vw;
+        }
+
+        .logOutButton {
+            margin-top: 20px;
+            width: 80px;
+            height: 34px;
+            margin-bottom: 2.5rem;
+            cursor: pointer;
+            background-color: $button_blue;
+            border-radius: 1rem;
+            border: 0;
+            transition: background-color .18s ease;
+            
+
+            &:hover, &:active, &:focus {
+                background-color: $nav_newyork_pink;
+            }
+        }
 
         .homeTitleSongs {
             font-size: 3rem;
@@ -31,13 +53,26 @@
         }
         .card {
             width: 100%;
-            margin: 2rem auto 5rem;
+            margin: 4.5rem auto 5rem;
+            margin-top: 4.5rem;
+
             display: flex;
             justify-content: space-between;
-            border-radius: 1rem;    
-            border: 0.5px solid var(--color-text);
+            border-radius: 1.1rem;    
 
-            // box-shadow: 0px 0px 17px $button_blue;
+            border: 1px solid var(--card-box-border-dark);
+            box-shadow: 0px 5px 15px 0px var(--card-box-border-hover-dark);
+            transform: scale(1);
+            transition: box-shadow .4s ease-in-out, transform .2s ease; 
+
+            
+            &:hover {
+                transition: box-shadow .4s ease-in-out, transform .2s ease; 
+
+                transform: scale(1.01);
+                box-shadow: 1px 2px 50px var(--card-box-border-hover-dark);
+
+            }
 
             .card_content {
                 display: flex;
@@ -78,7 +113,7 @@
                         z-index: -1;
                         background-color: rgba(46, 46, 46, 0.606);
                         border-radius: 0.6rem;
-
+                        
                     }
                 
 
@@ -90,6 +125,7 @@
                     min-width: 200px;
                     width: 100%;
                     height: 160px;
+                    position: relative;
                     
 
                     .audio {
@@ -101,6 +137,8 @@
                         justify-content: center;
                         canvas {
                             width: 100%;
+
+
                         }
 
                         
@@ -111,13 +149,39 @@
                     .audioKnobs {
                         display: flex;
                         position: absolute;
-                        bottom: 0;
+                        bottom: -34px;
+
+                        transition: all .4s ease;
+                        .VolumeSlider {
+
+                            z-index: 50;
+                            margin-right: 15px;
+                            position: relative;
+                            z-index: 100;
+                            &::after {
+                                content: "";
+                                top: 29px;
+                                right: 0;
+                                bottom: 29px;
+                                border-radius: 1rem;
+                                left: 0;
+                                position: absolute;
+                                background-color: var(--color-text);
+                                z-index: -10;
+                            }
+
+                        }
+
+                        input {
+
+                            z-index: 50;
+                            margin-right: 15px;
+                        }
 
 
                         
                         .playpausewrapper {
-                            margin: 15px 10px;
-                            position: absolute;
+                            margin: 5px 8px;
                             top: -20px;
                             background-color: transparent;
                             border: 0;
@@ -162,11 +226,7 @@
 
                         
 
-                        input {
-                            margin-left: 140px;
-                            margin-bottom: 8px;
-                            z-index: 30;
-                        }
+                        
 
 
                     }
@@ -182,23 +242,38 @@
                 
             }
 
+            .adminControl {
+                visibility: hidden;
+            }
+
             .card_content_extra{
                 display: flex;
                 flex-direction: column;
+
                 .updateButton {
                     font-size: 1.6rem;
                     cursor: pointer;
                     margin: 15px;
+
+                    &:hover {
+                        color: $button_blue;
+
+                    }
+                }
+
+
+                .deleteButton {
+                    font-size: 1.6rem;
+                    cursor: pointer;
+                    margin: 15px;
+
+                    &:hover {
+                        color: rgb(255, 93, 93);
+                    }
                 }
             }
 
-            transition: .18s all linear; 
 
-            &:hover {
-                transform: scale(1.01);
-                box-shadow: 0px 0px 15px var(--color-text);
-
-            }
 
             
         }
@@ -223,9 +298,7 @@
                             display: flex;
                             flex-direction: column-reverse;
                             
-                            .playButton {
-
-                            }
+                        
                         }
                     }
                 }
@@ -384,22 +457,46 @@
             align-items: center;
 
             .isSubmit_loader {
-                margin-top: 100px;
+                margin-top: 60px;
                 position: inherit;
+
+
                 &::after {
                     content: "Uploading File...";
-                    top: 30%;
+                    top: 350px;
                     
-                    right: 50%;
+                    right: 0%;
                     left: 44%;
+                    bottom: 0;
+                    display: flex;
+                    justify-self: center;
                     width: 200px;
-                    color: white;
+                    color: var(--color-text);
                     position: absolute;
                     font-weight: 100;
                     font-size: 1.3rem;
+
+                    animation: loading 1s linear infinite;
+
+
+                    
+                }
+                @keyframes loading {
+                    0% {
+                        content: "Uploading File"
+                    }
+
+                    33% {
+                        content: "Uploading File."
+                    }
+                    66% {
+                        content: "Uploading File.."
+                    }
+                    100% {
+                        content: "Uploading File..."
+                    }
                 }
             }
-
             h2 {
                 font-family: 'Lato', sans-serif;
                 margin-bottom: 2rem;
@@ -506,9 +603,7 @@
                         transition: all .25s ease;
         
                         // Transition?? FX
-                        @keyframes buttonTransform {
-                            
-                        }
+
         
                         &:hover {
                             background-color: $addsongbuttonhover;
@@ -640,6 +735,12 @@
                 }
             }
 
+            label {
+                background-color: var(--card-box-border-hover-dark);
+
+                cursor: pointer;
+            }
+
 
 
         }    // logo
@@ -658,4 +759,168 @@
         }
 
     }
+
+
+
+//// PHON USERS
+/// 
+
+
+
+// PHONE USERS:::
+
+@media screen and (max-width: 640px) and (min-width: 350px) {
+
+    #light {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .navBarMenu {
+        .navBarContainer {
+            .buttonToggleDarkmode {
+
+            
+
+                .label {
+                    left: 5px;
+                    top: 60px;
+
+
+                
+                }
+            }
+
+            .navBarItemWrap {
+                .navBarItem {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+
+    .home_wrapper {
+        width: 100%;
+        .homepage_container {
+            width: 98vw;
+            position: relative;
+
+
+            
+            .card {
+                margin-top: 4.5rem;
+
+                .adminControl {
+                    display: hidden;
+                    position: absolute;
+                }
+
+                
+                .card_content {
+                    .card_image {
+                        max-width: 120px;
+                        width: 120px;
+                        height: 120px;
+                    }
+
+                    .song_info {
+                    margin: 0;
+                    z-index: 50;
+                    top: -55px;
+
+                    }
+
+                    .audio_wrapper {
+                        max-height: 120px;
+                        position: relative;
+
+                        .audioKnobs {
+                            padding: 0;
+                            z-index: 10;
+                            position: absolute;
+
+                            .playpausewrapper {
+                                z-index: 20;
+
+                                .playButton {
+                                    font-size: 2rem;
+                                    margin: 0;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 349px) {
+
+    #light {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+
+
+    .home_wrapper {
+        width: 100%;
+        .homepage_container {
+            width: 100%;
+            .card {
+
+                .adminControl {
+                    display: hidden;
+                    position: absolute;
+                }
+
+                
+                .card_content {
+                    .card_image {
+                        max-width: 120px;
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    .song_info {
+                    margin: 0;
+                    z-index: 50;
+                    top: -55px;
+
+                    }
+
+                    .audio_wrapper {
+                        max-height: 120px;
+                        position: relative;
+
+                        .audioKnobs {
+                            padding: 0;
+                            z-index: 10;
+                            position: absolute;
+
+                            .playpausewrapper {
+                                z-index: 20;
+
+                                .playButton {
+                                    font-size: 2rem;
+                                    margin: 0;
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
 }

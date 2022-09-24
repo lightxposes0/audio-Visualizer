@@ -11,7 +11,6 @@ const NavBar = ({toggleTheme}) => {
     const [windowSize, setWindowSize] = useState(getWindowSize());
 
     useEffect(() => {
-        console.log(windowSize)
         function handleWindowResize() {
             setWindowSize(getWindowSize());
         }
@@ -21,7 +20,7 @@ const NavBar = ({toggleTheme}) => {
         return () => { 
             window.removeEventListener('resize', handleWindowResize);
         };
-    }, []);
+    }, [windowSize]);
 
     function getWindowSize() {
         const {innerWidth, innerHeight} = window;
@@ -35,7 +34,7 @@ const NavBar = ({toggleTheme}) => {
             
                 <div className='navBarItemWrap'>
                     <div  className="navBarItem">
-                    <Link to="/">
+                    <Link to="/home">
                         <img id='logo'  style={{width: "65px"}} src={logo} alt="logo" />
                     </Link>
                     </div>

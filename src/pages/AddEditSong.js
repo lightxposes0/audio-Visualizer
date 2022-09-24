@@ -40,7 +40,7 @@ const AddEditSong = (e) => {
         if (!authToken) {
             navigate('/login')
         }
-    });
+    }, []);
 
 
 
@@ -53,7 +53,7 @@ const AddEditSong = (e) => {
         const documentRef = doc(db, "songs", id);
         const snapshot = await getDoc(documentRef);
         if (snapshot.exists()) {
-            setData({... snapshot.data()});
+            setData({...snapshot.data()});
         }
     };
 
@@ -98,8 +98,6 @@ const AddEditSong = (e) => {
                         // save link to firestore database
                         setData((prev) => ({...prev, image: downloadURLimage}));
                         setIsSubmit(false);
-
-
 
                     });
                 })
@@ -228,7 +226,7 @@ const AddEditSong = (e) => {
             }
         }
         
-        navigate("/");
+        navigate("/home");
     };
 
     return (
