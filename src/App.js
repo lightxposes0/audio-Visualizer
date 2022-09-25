@@ -20,7 +20,7 @@ export const ThemeContext = createContext(null);
 export const ColorContext = createContext(null)
 
 const App = () => {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("dark");
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     let navigate = useNavigate();
