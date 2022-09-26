@@ -848,6 +848,17 @@
                     z-index: 50;
                     top: -55px;
 
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        z-index: -1;
+                        background-color: transparent;
+                        border-radius: 0.6rem;
+                        
+                    }
+
                     }
 
                     .audio_wrapper {
@@ -920,6 +931,17 @@
                     margin: 0;
                     z-index: 50;
                     top: -55px;
+
+                                        &::before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        z-index: -1;
+                        background-color: transparent;
+                        border-radius: 0.6rem;
+                        
+                    }
 
                     }
 

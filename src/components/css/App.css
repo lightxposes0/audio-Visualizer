@@ -942,6 +942,15 @@
     z-index: 50;
     top: -55px;
   }
+  #dark .home_wrapper .homepage_container .card .card_content .song_info::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-color: transparent;
+    border-radius: 0.6rem;
+  }
   #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper {
     max-height: 120px;
     position: relative;
@@ -988,6 +997,15 @@
     margin: 0;
     z-index: 50;
     top: -55px;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .song_info::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background-color: transparent;
+    border-radius: 0.6rem;
   }
   #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper {
     max-height: 120px;
