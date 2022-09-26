@@ -149,7 +149,7 @@
                     .audioKnobs {
                         display: flex;
                         position: absolute;
-                        bottom: -34px;
+                        bottom: -39px;
 
                         transition: all .4s ease;
                         .VolumeSlider {
@@ -199,7 +199,7 @@
 
 
                             .playButton {
-                                font-size: 2.5rem;
+                                font-size: 3rem;
                                 margin: 8px;
 
                             }
@@ -859,13 +859,20 @@
                             z-index: 10;
                             position: absolute;
 
+
                             .playpausewrapper {
                                 z-index: 20;
 
+
                                 .playButton {
-                                    font-size: 2rem;
                                     margin: 0;
+                                    font-size: 3.5rem;
+
                                 }
+                            }
+
+                            .onPhoneRemoveVolumeSlider {
+                                display: none;
                             }
                             
                         }
@@ -876,9 +883,13 @@
     }
 
 }
+
+
+
+
 @media screen and (max-width: 349px) {
 
-    #light {
+    #dark {
         width: 100%;
         box-sizing: border-box;
     }
@@ -925,9 +936,12 @@
                                 z-index: 20;
 
                                 .playButton {
-                                    font-size: 2rem;
                                     margin: 0;
                                 }
+                            }
+
+                            .onPhoneRemoveVolumeSlider {
+                                display: none;
                             }
                             
                         }
@@ -938,8 +952,4 @@
     }
 
 }
-
-
-
-
 }

@@ -9,7 +9,7 @@ import { createContext, useState, useEffect } from 'react';
 import './components/css/App.css';
 
 
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 
 import Form from './components/common/Form'
 
@@ -26,7 +26,7 @@ const App = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        let authToken = sessionStorage.getItem('Auth Token')
+        let authToken = localStorage.getItem('Auth Token')
     
         if (authToken) {
             navigate('/home');
@@ -54,7 +54,7 @@ const App = () => {
             createUserWithEmailAndPassword(authentication, email, password)
             .then((response) => {
                 navigate('/home')
-                sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+                localStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
             })
 
         }
@@ -63,7 +63,7 @@ const App = () => {
             signInWithEmailAndPassword(authentication, email, password)
             .then((response) => {
                 navigate('/home')
-                sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+                localStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
             })
         }
 
@@ -73,7 +73,7 @@ const App = () => {
             signInWithEmailAndPassword(authentication, email, password)
             .then((response) => {
                 navigate('/adminHome')
-                sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
+                localStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
             })
             } else {
                 alert("You have no access here...");

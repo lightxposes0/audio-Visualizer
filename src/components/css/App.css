@@ -263,7 +263,7 @@
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  bottom: -34px;
+  bottom: -39px;
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
 }
@@ -310,7 +310,7 @@
 }
 
 #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 8px;
 }
 
@@ -955,13 +955,16 @@
     z-index: 20;
   }
   #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
-    font-size: 2rem;
     margin: 0;
+    font-size: 3.5rem;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .onPhoneRemoveVolumeSlider {
+    display: none;
   }
 }
 
 @media screen and (max-width: 349px) {
-  #dark #light {
+  #dark #dark {
     width: 100%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -999,8 +1002,10 @@
     z-index: 20;
   }
   #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
-    font-size: 2rem;
     margin: 0;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .onPhoneRemoveVolumeSlider {
+    display: none;
   }
 }
 
@@ -1252,7 +1257,7 @@
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  bottom: -35px;
+  bottom: -39px;
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
 }
@@ -1294,7 +1299,7 @@
 }
 
 #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 8px;
 }
 
@@ -1900,8 +1905,11 @@
     z-index: 20;
   }
   #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
-    font-size: 2rem;
+    font-size: 3.5rem;
     margin: 0;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .onPhoneRemoveVolumeSlider {
+    display: none;
   }
 }
 

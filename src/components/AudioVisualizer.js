@@ -109,7 +109,7 @@ const AudioVisualizer = (props) => {
                         <FontAwesomeIcon className={ isPlaying ? 'playButton activeButton' : 'playButton notActiveButton'} icon={ isPlaying ? pauseButton : playButton} />
                 </button>
 
-                <input type="range" className='VolumeSlider' id="volume" name="volume" min="0.01" max="1" step=".025" onChange={onVolumeChange} defaultValue={volume}/>
+                <input type="range" className='VolumeSlider onPhoneRemoveVolumeSlider' id="volume" name="volume" min="0.01" max="1" step=".025" onChange={onVolumeChange} defaultValue={volume}/>
             </div>
         </>
     )

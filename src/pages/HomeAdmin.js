@@ -22,7 +22,7 @@ const Home = (props) => {
 
 
     useEffect(() => {
-        let authToken = sessionStorage.getItem('Auth Token')
+        let authToken = localStorage.getItem('Auth Token')
 
 
         if (authToken) {

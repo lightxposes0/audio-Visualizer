@@ -20,7 +20,7 @@ const Home = (props) => {
     // 1. Check if the user is signed in.. 
     // 2. If user is signed in, => navigate to this /home screen. ELSE: go to log in page..
     useEffect(() => {
-        let authToken = sessionStorage.getItem('Auth Token')
+        let authToken = localStorage.getItem('Auth Token')
 
         if (authToken) {
             navigate('/home')
