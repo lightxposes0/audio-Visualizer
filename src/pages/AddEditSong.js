@@ -3,9 +3,8 @@ import React, {useState, useEffect} from 'react';
 import {Storage, db} from '../firebase';
 import { useParams, useNavigate } from 'react-router-dom';
 import {ScaleLoader} from 'react-spinners';
-import '../components/css/addEdit/add-edit.css'
 import { getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 
 const initialState = {
     title: "",
@@ -22,10 +21,43 @@ const AddEditSong = (e) => {
     const [errors, setErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const navigate = useNavigate();
+    const {id} = useParams();
 
     // after merge,   NEW FEATURE == new button for IMG..
     const [imageFile, setImageFile] = useState(null);
     // Run on state change for image upload...
+
+
+
+
+    useEffect(() => {
+        let authToken = sessionStorage.getItem('Auth Token')
+
+        if (authToken) {
+            navigate('/add')
+        }
+
+        if (!authToken) {
+            navigate('/login')
+        }
+    }, []);
+
+
+
+
+    useEffect(() => {
+        id && getSingleUser()
+    }, [id]);
+
+    const getSingleUser = async () => {
+        const documentRef = doc(db, "songs", id);
+        const snapshot = await getDoc(documentRef);
+        if (snapshot.exists()) {
+            setData({...snapshot.data()});
+        }
+    };
+
+
     useEffect(() => {
 
         // Should run only when a file is being set.. Run only when file is being uploaded. 
@@ -67,8 +99,6 @@ const AddEditSong = (e) => {
                         setData((prev) => ({...prev, image: downloadURLimage}));
                         setIsSubmit(false);
 
-
-
                     });
                 })
 
@@ -79,7 +109,7 @@ const AddEditSong = (e) => {
 
         };
         // triggers when file is SET
-        file && uploadFile()
+        imageFile && uploadFile()
 
 
     }, [imageFile]);
@@ -95,7 +125,6 @@ const AddEditSong = (e) => {
                 alert("No input fields filled.");
                 navigate("/add");
             };
-            console.log("KJØRER LIKEVEL");
             const name = new Date().getTime() + file.name;
             const storageRef = ref(Storage, 'audioVisualizer/audio/'+ name);
             const uploadTask = uploadBytesResumable(storageRef, file);
@@ -175,11 +204,29 @@ const AddEditSong = (e) => {
         if(Object.keys(errors).length) return setErrors(errors);
 
         setIsSubmit(true);
-        await addDoc(collection(db, "songs"), {
-            ...data,
-            timestamp: serverTimestamp()
-        })
-        navigate("/");
+
+        if(!id) {
+            try {
+                await addDoc(collection(db, "songs"), {
+                    ...data,
+                    timestamp: serverTimestamp()
+                })
+            } catch (error) {
+                console.log(error);
+            }
+            
+        } else {
+            try {
+                await updateDoc(doc(db, "songs", id), {
+                    ...data,
+                    timestamp: serverTimestamp()
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
+        navigate("/home");
     };
 
     return (
@@ -194,7 +241,7 @@ const AddEditSong = (e) => {
                         :
                         (
                             <>
-                            <h2>Add Song</h2>
+                            <h2>{ id ? "Update Song" : "Add song"}</h2>
                             <form className='form_wrapper' onSubmit={handleSubmit}>
                                 <input
                                     className='input_text'

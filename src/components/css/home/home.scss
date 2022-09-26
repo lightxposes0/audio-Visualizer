@@ -4,8 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-
 }
 
 .home_wrapper {
@@ -114,33 +112,36 @@
                         position: absolute;
                         bottom: 0;
 
+
+                        
                         .playpausewrapper {
                             margin: 15px 10px;
                             position: absolute;
                             top: -20px;
-                            z-index: 3;
+                            background-color: transparent;
+                            border: 0;
+                            z-index: 30;
+                            cursor: pointer;
+                            
 
-                        
+                            .activeButton {
+                                color: $red;
+                            }
+
+                            .notActiveButton {
+                                color: $primary_white;
+                            }
 
 
                             .playButton {
                                 font-size: 2.5rem;
                                 margin: 8px;
-                                cursor: pointer;
 
-                                &:active, &:focus {
-                                    color: red
-                                }
+                            }
 
-                                &:hover {
-                                    transform: scale(1.1);
-                                }
                             
-                            }
 
-                            .activeButton {
-                                color: red
-                            }
+                            
 
                             
 
@@ -158,9 +159,12 @@
                             }
                         }
 
+                        
+
                         input {
                             margin-left: 140px;
                             margin-bottom: 8px;
+                            z-index: 30;
                         }
 
 
@@ -171,6 +175,7 @@
                 .card_image {
                     width: 160px;
                     height: 160px;
+                    margin-right: 10px;
                     border-radius: 1rem;
                 }
                 
@@ -227,3 +232,5 @@
         }
     }
 }
+
+

@@ -1,18 +1,36 @@
-$font-stack: Helvetica, sans-serif;
 
+
+// .dark {
+//     --color-page-background: #{$background_dark};
+//     --color-text: #{$primary_white};
+// }
+
+
+
+
+// $background-color: #fff;
+// $text-color: #06041E;
+
+
+
+$font-stack: Helvetica, sans-serif;
 // Primary background
-$background_dark: #06041E;
-$primary_white: rgb(213, 213, 213);
-$bright_white: rgb(255, 255, 255);
+$background_dark: #06041E; // background clr,, primary used in => Home.js
+
+
+$primary_white: rgb(213, 213, 213); // objects and text color => Home.js
+$bright_white: rgb(255, 255, 255); // used for title, text etc.. => Home.js
 
 // Button
-$button_blue: #13AEA2;
+$button_blue: #13AEA2; // used for button´s and box shadow => Home.js
 $button_upload_red: #BE3030;
-$addsongbuttonhover: #C6556B;
+$addsongbuttonhover: #C6556B; // 
 $addsongbuttonactive: #ECA4A3;
+$input_second_focus: #13aea14d;
+
+$red: rgb(255,0,0); // used in button toggle play/pause => Home.js
 
 $input_focus: #13aea190;
-$input_second_focus: #13aea14d;
 $pink_blush: #D7838B;
 $nav_img_hover: #dbcdc423;
 $nav_img_bg: #dbcdc4;
@@ -25,3 +43,17 @@ $guling: #f7de1c;
 
 // unused
 $nav_lightBlueColor: #2FCEB8;
+
+
+:root {
+    --color-page-background: #fff;
+    --color-text: #06041E;
+
+    --card-bg: #ffffffde;
+    --card-box-border: rgb(81, 81, 81);
+    --card-box-border-dark: rgb(201, 201, 201);
+    --card-box-border-hover: rgba(63, 63, 63, 0.733);
+    --card-box-border-hover-dark: #7f7f7f;
+    --card-box-border-blue: #7ee4d6b0;
+
+}

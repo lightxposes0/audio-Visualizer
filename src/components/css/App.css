@@ -1,0 +1,1961 @@
+:root {
+  --color-page-background: #fff;
+  --color-text: #06041E;
+  --card-bg: #ffffffde;
+  --card-box-border: rgb(81, 81, 81);
+  --card-box-border-dark: rgb(201, 201, 201);
+  --card-box-border-hover: rgba(63, 63, 63, 0.733);
+  --card-box-border-hover-dark: #7f7f7f;
+  --card-box-border-blue: #7ee4d6b0;
+}
+
+:root {
+  --color-page-background: #fff;
+  --color-text: #06041E;
+  --card-bg: #ffffffde;
+  --card-box-border: rgb(81, 81, 81);
+  --card-box-border-dark: rgb(201, 201, 201);
+  --card-box-border-hover: rgba(63, 63, 63, 0.733);
+  --card-box-border-hover-dark: #7f7f7f;
+  --card-box-border-blue: #7ee4d6b0;
+}
+
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  top: 100px;
+  left: 50px;
+}
+
+.buttonToggleDarkmode {
+  position: absolute;
+  left: 20px;
+  z-index: 100;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 26px;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball {
+  -webkit-transform: translateX(-24px);
+          transform: translateX(-24px);
+}
+
+.checkbox {
+  visibility: hidden;
+}
+
+.fa-moon {
+  color: pink;
+}
+
+.fa-sun {
+  color: yellow;
+}
+
+@media screen and (min-width: 800px) {
+  .label {
+    left: 200px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .label {
+    left: 330px;
+  }
+}
+
+#dark .home_wrapper {
+  background-color: var(--color-page-background);
+  width: 100%;
+  height: 100%;
+  color: var(--color-text);
+  font-family: 'Lato';
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#dark .home_wrapper .homepage_container {
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 851px) and (max-width: 1200px) {
+  #dark .home_wrapper .homepage_container {
+    width: 90vw;
+  }
+}
+
+#dark .home_wrapper .homepage_container .logOutButton {
+  margin-top: 20px;
+  width: 80px;
+  height: 34px;
+  margin-bottom: 2.5rem;
+  cursor: pointer;
+  background-color: #13AEA2;
+  border-radius: 1rem;
+  border: 0;
+  -webkit-transition: background-color .18s ease;
+  transition: background-color .18s ease;
+}
+
+#dark .home_wrapper .homepage_container .logOutButton:hover, #dark .home_wrapper .homepage_container .logOutButton:active, #dark .home_wrapper .homepage_container .logOutButton:focus {
+  background-color: #e58e8f95;
+}
+
+#dark .home_wrapper .homepage_container .homeTitleSongs {
+  font-size: 3rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+#dark .home_wrapper .homepage_container .card {
+  width: 100%;
+  margin: 4.5rem auto 5rem;
+  margin-top: 4.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 1.1rem;
+  border: 1px solid var(--card-box-border-dark);
+  -webkit-box-shadow: 0px 5px 15px 0px var(--card-box-border-hover-dark);
+          box-shadow: 0px 5px 15px 0px var(--card-box-border-hover-dark);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+  transition: -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+  transition: box-shadow .4s ease-in-out, transform .2s ease;
+  transition: box-shadow .4s ease-in-out, transform .2s ease, -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+}
+
+#dark .home_wrapper .homepage_container .card:hover {
+  -webkit-transition: -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+  transition: -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+  transition: box-shadow .4s ease-in-out, transform .2s ease;
+  transition: box-shadow .4s ease-in-out, transform .2s ease, -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  -webkit-box-shadow: 1px 2px 50px var(--card-box-border-hover-dark);
+          box-shadow: 1px 2px 50px var(--card-box-border-hover-dark);
+}
+
+#dark .home_wrapper .homepage_container .card .card_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .song_info {
+  position: absolute;
+  margin-left: 165px;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 10;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .song_info h2, #dark .home_wrapper .homepage_container .card .card_content .song_info h4 {
+  padding: 2px 20px;
+  color: var(--color-text);
+  border-radius: 1rem;
+  position: relative;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .song_info h2 {
+  font-size: 1.2rem;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .song_info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .song_info::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-color: rgba(46, 46, 46, 0.606);
+  border-radius: 0.6rem;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper {
+  min-width: 200px;
+  width: 100%;
+  height: 160px;
+  position: relative;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio canvas {
+  width: 100%;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: -34px;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .VolumeSlider {
+  z-index: 50;
+  margin-right: 15px;
+  position: relative;
+  z-index: 100;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .VolumeSlider::after {
+  content: "";
+  top: 29px;
+  right: 0;
+  bottom: 29px;
+  border-radius: 1rem;
+  left: 0;
+  position: absolute;
+  background-color: var(--color-text);
+  z-index: -10;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs input {
+  z-index: 50;
+  margin-right: 15px;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper {
+  margin: 5px 8px;
+  top: -20px;
+  background-color: transparent;
+  border: 0;
+  z-index: 30;
+  cursor: pointer;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .activeButton {
+  color: red;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .notActiveButton {
+  color: var(--color-text);
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
+  font-size: 2.5rem;
+  margin: 8px;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper::after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background-color: var(--color-page-background);
+  z-index: -1;
+  border-radius: 2rem;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content .card_image {
+  width: 160px;
+  height: 160px;
+  margin-right: 10px;
+  border-radius: 1rem;
+}
+
+#dark .home_wrapper .homepage_container .card .adminControl {
+  visibility: hidden;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content_extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content_extra .updateButton {
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 15px;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content_extra .updateButton:hover {
+  color: #13AEA2;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content_extra .deleteButton {
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 15px;
+}
+
+#dark .home_wrapper .homepage_container .card .card_content_extra .deleteButton:hover {
+  color: #ff5d5d;
+}
+
+@media screen and (max-width: 850px) {
+  #dark .home_wrapper .homepage_container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
+#dark .form_container {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#dark .form_container .form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 1;
+  -webkit-animation: opacitychange 2s ease;
+          animation: opacitychange 2s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes opacitychange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes opacitychange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+#dark .form_container .form_wrapper .form-heading {
+  margin: 1.5rem 0 2rem;
+}
+
+#dark .form_container .form_wrapper .form-heading h3 {
+  font-size: 2rem;
+}
+
+#dark .form_container .form_wrapper .formBox form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#dark .form_container .form_wrapper .formBox form .input_text {
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 1px solid #13AEA2;
+  color: var(--color-text);
+  background-color: #13aea14d;
+}
+
+#dark .form_container .form_wrapper .formBox form .input_text:focus, #dark .form_container .form_wrapper .formBox form .input_text:visited, #dark .form_container .form_wrapper .formBox form .input_text:active {
+  background-color: #13aea190;
+  color: var(--color-text);
+}
+
+#dark .form_container .form_wrapper .formBox form .input_text:focus::-webkit-input-placeholder, #dark .form_container .form_wrapper .formBox form .input_text:visited::-webkit-input-placeholder, #dark .form_container .form_wrapper .formBox form .input_text:active::-webkit-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .form_container .form_wrapper .formBox form .input_text:focus:-ms-input-placeholder, #dark .form_container .form_wrapper .formBox form .input_text:visited:-ms-input-placeholder, #dark .form_container .form_wrapper .formBox form .input_text:active:-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .form_container .form_wrapper .formBox form .input_text:focus::-ms-input-placeholder, #dark .form_container .form_wrapper .formBox form .input_text:visited::-ms-input-placeholder, #dark .form_container .form_wrapper .formBox form .input_text:active::-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .form_container .form_wrapper .formBox form .input_text:focus::placeholder, #dark .form_container .form_wrapper .formBox form .input_text:visited::placeholder, #dark .form_container .form_wrapper .formBox form .input_text:active::placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .form_container .form_wrapper .authButtons {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  height: 45px;
+  border-radius: 0.5rem;
+  background-color: #13AEA2;
+  border: 0;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+#dark .form_container .form_wrapper .authButtons:nth-last-child(1) {
+  margin-top: 25px;
+}
+
+#dark .form_container .form_wrapper .authButtons:hover {
+  background-color: #C6556B;
+}
+
+#dark .form_container .form_wrapper .authButtons:active {
+  background-color: #ECA4A3;
+}
+
+@media screen and (min-width: 750px) {
+  #dark .form_container .form_wrapper {
+    width: 50%;
+  }
+  #dark .form_container .form_wrapper .formBox {
+    width: 70%;
+  }
+  #dark .form_container .form_wrapper .formBox form .input_text {
+    font-size: 1.5rem;
+  }
+  #dark .form_container .form_wrapper .authButtons {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  #dark .form_container .form_wrapper {
+    width: 80%;
+  }
+  #dark .form_container .form_wrapper .formBox {
+    width: 100%;
+  }
+  #dark .form_container .form_wrapper .formBox form .input_text {
+    font-size: 1.5rem;
+  }
+}
+
+#dark .add_edit_container {
+  width: 100%;
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-page-background);
+  padding-top: 20px;
+}
+
+#dark .add_edit_container .add_Edit_Song_container {
+  width: 50%;
+  height: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader {
+  margin-top: 60px;
+  position: inherit;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader::after {
+  content: "Uploading File...";
+  top: 350px;
+  right: 0%;
+  left: 44%;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  width: 200px;
+  color: var(--color-text);
+  position: absolute;
+  font-weight: 100;
+  font-size: 1.3rem;
+  -webkit-animation: loading 1s linear infinite;
+          animation: loading 1s linear infinite;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    content: "Uploading File";
+  }
+  33% {
+    content: "Uploading File.";
+  }
+  66% {
+    content: "Uploading File..";
+  }
+  100% {
+    content: "Uploading File...";
+  }
+}
+
+@keyframes loading {
+  0% {
+    content: "Uploading File";
+  }
+  33% {
+    content: "Uploading File.";
+  }
+  66% {
+    content: "Uploading File..";
+  }
+  100% {
+    content: "Uploading File...";
+  }
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper h2 {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+  position: relative;
+  font-size: 2rem;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper h2::after {
+  content: "";
+  margin-top: 32px;
+  border-bottom: 1px solid var(--color-text);
+  position: absolute;
+  bottom: 0;
+  right: -50px;
+  top: 0px;
+  left: -50px;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text {
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 1px solid #13AEA2;
+  color: var(--color-text);
+  background-color: #13aea14d;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus {
+  background-color: #13aea190;
+  color: var(--color-text);
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::-webkit-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus:-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .upload_file_label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  width: 45%;
+  height: 45px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: #BE3030;
+  z-index: 100;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .upload_file_label:hover {
+  background-color: #C6556B;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .upload_file_label:active {
+  background-color: #ECA4A3;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .input_file {
+  display: none;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  height: 45px;
+  border-radius: 0.5rem;
+  background-color: #13AEA2;
+  border: 0;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn:hover {
+  background-color: #C6556B;
+}
+
+#dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn:active {
+  background-color: #ECA4A3;
+}
+
+@media screen and (max-width: 820px) {
+  #dark .add_edit_container .add_Edit_Song_container {
+    width: 90%;
+  }
+}
+
+#dark .navBarMenu {
+  height: 80px;
+  padding: 0.3rem;
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+  position: relative;
+}
+
+#dark .navBarMenu::after {
+  content: "";
+  position: absolute;
+  top: 78;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #e58e8f95;
+}
+
+#dark .navBarMenu .navBarContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#dark .navBarMenu .navBarContainer .navBarItemWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#dark .navBarMenu .navBarContainer .navBarItemWrap #logo {
+  border: 1px solid var(--color-page-background);
+  border-radius: 2rem;
+  margin: 0 30px;
+  -webkit-transition: all 10s ease-in-out;
+  transition: all 10s ease-in-out;
+}
+
+#dark .navBarMenu .navBarContainer .navBarItemWrap #logo:hover {
+  background-color: #dbcdc423;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+#dark .navBarMenu .navBarContainer .navBarItem {
+  margin-right: 1rem;
+}
+
+#dark .navBarMenu .navBarContainer .navBarItem .newSongButton {
+  width: 100px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: #13AEA2;
+  border: 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+@-webkit-keyframes buttonTransform {}
+
+@keyframes buttonTransform {}#dark .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
+  background-color: #C6556B;
+}
+
+#dark .navBarMenu .navBarContainer .navBarItem .newSongButton:active {
+  background-color: #ECA4A3;
+}
+
+@media screen and (max-width: 750px) {
+  #dark .navBarMenu .navBarContainer .navBarItem h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-align: center;
+  }
+}
+
+#dark .navBarMenu .navBarContainer label {
+  background-color: var(--card-box-border-hover-dark);
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  #dark .navBarMenu .navBarContainer {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 640px) and (min-width: 350px) {
+  #dark #light {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #dark .navBarMenu .navBarContainer .buttonToggleDarkmode .label {
+    left: 5px;
+    top: 60px;
+  }
+  #dark .navBarMenu .navBarContainer .navBarItemWrap .navBarItem {
+    text-align: center;
+  }
+  #dark .home_wrapper {
+    width: 100%;
+  }
+  #dark .home_wrapper .homepage_container {
+    width: 98vw;
+    position: relative;
+  }
+  #dark .home_wrapper .homepage_container .card {
+    margin-top: 4.5rem;
+  }
+  #dark .home_wrapper .homepage_container .card .adminControl {
+    display: hidden;
+    position: absolute;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .card_image {
+    max-width: 120px;
+    width: 120px;
+    height: 120px;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .song_info {
+    margin: 0;
+    z-index: 50;
+    top: -55px;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper {
+    max-height: 120px;
+    position: relative;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs {
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper {
+    z-index: 20;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  #dark #light {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #dark .home_wrapper {
+    width: 100%;
+  }
+  #dark .home_wrapper .homepage_container {
+    width: 100%;
+  }
+  #dark .home_wrapper .homepage_container .card .adminControl {
+    display: hidden;
+    position: absolute;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .card_image {
+    max-width: 120px;
+    width: 100px;
+    height: 100px;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .song_info {
+    margin: 0;
+    z-index: 50;
+    top: -55px;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper {
+    max-height: 120px;
+    position: relative;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs {
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper {
+    z-index: 20;
+  }
+  #dark .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
+
+:root {
+  --color-page-background: #fff;
+  --color-text: #06041E;
+  --card-bg: #ffffffde;
+  --card-box-border: rgb(81, 81, 81);
+  --card-box-border-dark: rgb(201, 201, 201);
+  --card-box-border-hover: rgba(63, 63, 63, 0.733);
+  --card-box-border-hover-dark: #7f7f7f;
+  --card-box-border-blue: #7ee4d6b0;
+}
+
+.label {
+  width: 50px;
+  height: 26px;
+  background-color: #111;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  top: 100px;
+  left: 50px;
+}
+
+.buttonToggleDarkmode {
+  position: absolute;
+  left: 20px;
+  z-index: 100;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  left: 26px;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+.checkbox:checked + .label .ball {
+  -webkit-transform: translateX(-24px);
+          transform: translateX(-24px);
+}
+
+.checkbox {
+  visibility: hidden;
+}
+
+.fa-moon {
+  color: pink;
+}
+
+.fa-sun {
+  color: yellow;
+}
+
+@media screen and (min-width: 800px) {
+  .label {
+    left: 200px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .label {
+    left: 330px;
+  }
+}
+
+#light {
+  font-family: 'lato', sans-serif;
+}
+
+#light .home_wrapper {
+  background-color: var(--color-page-background);
+  width: 100%;
+  height: 100%;
+  color: var(--color-text);
+  font-family: 'Lato';
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#light .home_wrapper .homepage_container {
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 851px) and (max-width: 1200px) {
+  #light .home_wrapper .homepage_container {
+    width: 90vw;
+  }
+}
+
+#light .home_wrapper .homepage_container .logOutButton {
+  margin-top: 20px;
+  width: 80px;
+  height: 34px;
+  margin-bottom: 2.5rem;
+  cursor: pointer;
+  background-color: #13AEA2;
+  border-radius: 1rem;
+  border: 0;
+  -webkit-transition: background-color .18s ease;
+  transition: background-color .18s ease;
+}
+
+#light .home_wrapper .homepage_container .logOutButton:hover, #light .home_wrapper .homepage_container .logOutButton:active, #light .home_wrapper .homepage_container .logOutButton:focus {
+  background-color: #e58e8f95;
+}
+
+#light .home_wrapper .homepage_container .homeTitleSongs {
+  font-size: 3rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+#light .home_wrapper .homepage_container .card {
+  width: 100%;
+  margin: 4.5rem auto 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 1rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--color-page-background);
+  -webkit-box-shadow: 1px 2px 20px var(--card-box-border);
+          box-shadow: 1px 2px 20px var(--card-box-border);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform .2s  ease, -webkit-box-shadow .4s ease-in-out;
+  transition: -webkit-transform .2s  ease, -webkit-box-shadow .4s ease-in-out;
+  transition: transform .2s  ease, box-shadow .4s ease-in-out;
+  transition: transform .2s  ease, box-shadow .4s ease-in-out, -webkit-transform .2s  ease, -webkit-box-shadow .4s ease-in-out;
+}
+
+#light .home_wrapper .homepage_container .card:hover {
+  -webkit-transition: -webkit-transform .2s  ease, -webkit-box-shadow .4s ease-in-out;
+  transition: -webkit-transform .2s  ease, -webkit-box-shadow .4s ease-in-out;
+  transition: transform .2s  ease, box-shadow .4s ease-in-out;
+  transition: transform .2s  ease, box-shadow .4s ease-in-out, -webkit-transform .2s  ease, -webkit-box-shadow .4s ease-in-out;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  -webkit-box-shadow: 1px 2px 60px var(--card-box-border-hover);
+          box-shadow: 1px 2px 60px var(--card-box-border-hover);
+}
+
+#light .home_wrapper .homepage_container .card .card_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .song_info {
+  position: absolute;
+  margin-left: 165px;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 10;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .song_info h2, #light .home_wrapper .homepage_container .card .card_content .song_info h4 {
+  padding: 2px 20px;
+  color: var(--color-text);
+  border-radius: 1rem;
+  position: relative;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .song_info h2 {
+  font-size: 1.2rem;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .song_info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper {
+  min-width: 200px;
+  width: 100%;
+  height: 160px;
+  position: relative;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio canvas {
+  width: 100%;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: -35px;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .VolumeSlider {
+  z-index: 50;
+  margin-right: 15px;
+  position: relative;
+  z-index: 100;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .VolumeSlider::after {
+  content: "";
+  top: 29px;
+  right: 0;
+  bottom: 29px;
+  border-radius: 1rem;
+  left: 0;
+  position: absolute;
+  background-color: var(--color-text);
+  z-index: -10;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper {
+  margin: 5px 8px;
+  top: -20px;
+  background-color: transparent;
+  border: 0;
+  z-index: 30;
+  cursor: pointer;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .activeButton {
+  color: red;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .notActiveButton {
+  color: var(--color-text);
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
+  font-size: 2.5rem;
+  margin: 8px;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper::after {
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background-color: var(--color-page-background);
+  z-index: -1;
+  border-radius: 2rem;
+}
+
+#light .home_wrapper .homepage_container .card .card_content .card_image {
+  width: 160px;
+  height: 160px;
+  margin-right: 10px;
+  border-radius: 1rem;
+}
+
+#light .home_wrapper .homepage_container .card .adminControl {
+  visibility: hidden;
+}
+
+#light .home_wrapper .homepage_container .card .card_content_extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#light .home_wrapper .homepage_container .card .card_content_extra .updateButton {
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 15px;
+}
+
+#light .home_wrapper .homepage_container .card .card_content_extra .updateButton:hover {
+  color: #13AEA2;
+}
+
+#light .home_wrapper .homepage_container .card .card_content_extra .deleteButton {
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin: 15px;
+}
+
+#light .home_wrapper .homepage_container .card .card_content_extra .deleteButton:hover {
+  color: #ff5d5d;
+}
+
+@media screen and (max-width: 850px) {
+  #light .home_wrapper .homepage_container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audio {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
+#light .form_container {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: var(--color-page-background);
+  color: var(--color-text);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#light .form_container .form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+  border: 0.5px solid var(--card-box-border);
+  -webkit-box-shadow: 1px 2px 10px var(--card-box-border);
+          box-shadow: 1px 2px 10px var(--card-box-border);
+}
+
+#light .form_container .form_wrapper .form-heading {
+  margin: 1.5rem 0 2rem;
+}
+
+#light .form_container .form_wrapper .form-heading h3 {
+  font-size: 2rem;
+}
+
+#light .form_container .form_wrapper .formBox {
+  width: 90%;
+}
+
+#light .form_container .form_wrapper .formBox form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#light .form_container .form_wrapper .formBox form .input_text {
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 1px solid #13AEA2;
+  color: var(--color-text);
+  background-color: #13aea14d;
+}
+
+#light .form_container .form_wrapper .formBox form .input_text:focus, #light .form_container .form_wrapper .formBox form .input_text:visited, #light .form_container .form_wrapper .formBox form .input_text:active {
+  background-color: #13aea190;
+  color: var(--color-text);
+}
+
+#light .form_container .form_wrapper .formBox form .input_text:focus::-webkit-input-placeholder, #light .form_container .form_wrapper .formBox form .input_text:visited::-webkit-input-placeholder, #light .form_container .form_wrapper .formBox form .input_text:active::-webkit-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .form_container .form_wrapper .formBox form .input_text:focus:-ms-input-placeholder, #light .form_container .form_wrapper .formBox form .input_text:visited:-ms-input-placeholder, #light .form_container .form_wrapper .formBox form .input_text:active:-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .form_container .form_wrapper .formBox form .input_text:focus::-ms-input-placeholder, #light .form_container .form_wrapper .formBox form .input_text:visited::-ms-input-placeholder, #light .form_container .form_wrapper .formBox form .input_text:active::-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .form_container .form_wrapper .formBox form .input_text:focus::placeholder, #light .form_container .form_wrapper .formBox form .input_text:visited::placeholder, #light .form_container .form_wrapper .formBox form .input_text:active::placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .form_container .form_wrapper .authButtons {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  height: 45px;
+  border-radius: 0.5rem;
+  background-color: #13AEA2;
+  border: 0;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: background-color .2s ease;
+  transition: background-color .2s ease;
+}
+
+#light .form_container .form_wrapper .authButtons:nth-last-child(1) {
+  margin-top: 25px;
+}
+
+#light .form_container .form_wrapper .authButtons:hover {
+  background-color: #C6556B;
+}
+
+#light .form_container .form_wrapper .authButtons:active {
+  background-color: #ECA4A3;
+}
+
+@media screen and (max-width: 749px) {
+  #light .form_container .form_wrapper {
+    width: 80%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: none;
+  }
+  #light .form_container .form_wrapper .formBox {
+    width: 100%;
+  }
+  #light .form_container .form_wrapper .formBox form .input_text {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #light .form_container .form_wrapper {
+    width: 50%;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    border: none;
+  }
+  #light .form_container .form_wrapper .formBox {
+    width: 70%;
+  }
+  #light .form_container .form_wrapper .formBox form .input_text {
+    font-size: 1.5rem;
+  }
+  #light .form_container .form_wrapper .authButtons {
+    width: 70%;
+  }
+}
+
+#light .add_edit_container {
+  width: 100%;
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: var(--color-page-background);
+  padding-top: 20px;
+}
+
+#light .add_edit_container .add_Edit_Song_container {
+  width: 40%;
+  height: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 3rem;
+  -webkit-box-shadow: -10px -10px 30px 4px rgba(0, 0, 0, 0.15), 10px 10px 30px 4px rgba(112, 112, 112, 0.25);
+          box-shadow: -10px -10px 30px 4px rgba(0, 0, 0, 0.15), 10px 10px 30px 4px rgba(112, 112, 112, 0.25);
+  border-radius: 2rem;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader {
+  margin-top: 60px;
+  position: inherit;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader::after {
+  content: "Uploading File...";
+  top: 350px;
+  right: 0%;
+  left: 44%;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: center;
+  width: 200px;
+  color: var(--color-text);
+  position: absolute;
+  font-weight: 100;
+  font-size: 1.3rem;
+  -webkit-animation: loading 1s linear infinite;
+          animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    content: "Uploading File";
+  }
+  33% {
+    content: "Uploading File.";
+  }
+  66% {
+    content: "Uploading File..";
+  }
+  100% {
+    content: "Uploading File...";
+  }
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper h2 {
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: var(--color-text);
+  position: relative;
+  font-size: 2rem;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper h2::after {
+  content: "";
+  margin-top: 32px;
+  border-bottom: 1px solid var(--color-text);
+  position: absolute;
+  bottom: 0;
+  right: -50px;
+  top: 0px;
+  left: -50px;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text {
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 1px solid #13AEA2;
+  color: var(--color-text);
+  background-color: #13aea14d;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus {
+  background-color: #13aea190;
+  color: var(--color-text);
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::-webkit-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus:-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::-ms-input-placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .input_text:focus::placeholder {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .upload_file_label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  width: 45%;
+  height: 45px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: #BE3030;
+  z-index: 100;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .upload_file_label:hover {
+  background-color: #C6556B;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .upload_file_label:active {
+  background-color: #ECA4A3;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .input_files_btns .input_file {
+  display: none;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100%;
+  height: 45px;
+  border-radius: 0.5rem;
+  background-color: #13AEA2;
+  border: 0;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+@keyframes buttonTransform {}#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn:hover {
+  background-color: #C6556B;
+}
+
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn:active {
+  background-color: #ECA4A3;
+}
+
+@media screen and (max-width: 820px) {
+  #light .add_edit_container .add_Edit_Song_container {
+    width: 90%;
+  }
+}
+
+#light .navBarMenu {
+  height: 80px;
+  padding: 0.3rem;
+  background-color: var();
+  color: var(--color-text);
+  position: relative;
+}
+
+#light .navBarMenu::after {
+  content: "";
+  position: absolute;
+  top: 78;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #e58e8f95;
+}
+
+#light .navBarMenu .navBarContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#light .navBarMenu .navBarContainer .navBarItemWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#light .navBarMenu .navBarContainer .navBarItemWrap #logo {
+  border: 1px solid var(--color-page-background);
+  border-radius: 2rem;
+  margin: 0 30px;
+  -webkit-transition: all 10s ease-in-out;
+  transition: all 10s ease-in-out;
+}
+
+#light .navBarMenu .navBarContainer .navBarItemWrap #logo:hover {
+  background-color: #dbcdc423;
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+#light .navBarMenu .navBarContainer .navBarItem {
+  margin-right: 1rem;
+}
+
+#light .navBarMenu .navBarContainer .navBarItem .newSongButton {
+  width: 100px;
+  height: 40px;
+  border-radius: 0.5rem;
+  background-color: #13AEA2;
+  border: 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+}
+
+@keyframes buttonTransform {}#light .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
+  background-color: #C6556B;
+}
+
+#light .navBarMenu .navBarContainer .navBarItem .newSongButton:active {
+  background-color: #ECA4A3;
+}
+
+@media screen and (max-width: 750px) {
+  #light .navBarMenu .navBarContainer .navBarItem h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+}
+
+#light .navBarMenu .navBarContainer label {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+  #light .navBarMenu .navBarContainer {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 640px) and (min-width: 350px) {
+  #light #light {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #light .navBarMenu .navBarContainer .buttonToggleDarkmode .label {
+    left: 5px;
+    top: 60px;
+  }
+  #light .navBarMenu .navBarContainer .navBarItemWrap .navBarItem {
+    text-align: center;
+  }
+  #light .home_wrapper {
+    width: 100%;
+  }
+  #light .home_wrapper .homepage_container {
+    width: 98vw;
+    position: relative;
+  }
+  #light .home_wrapper .homepage_container .card {
+    margin-top: 4.5rem;
+  }
+  #light .home_wrapper .homepage_container .card .adminControl {
+    display: hidden;
+    position: absolute;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .card_image {
+    max-width: 120px;
+    width: 120px;
+    height: 120px;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .song_info {
+    margin: 0;
+    z-index: 50;
+    top: -55px;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper {
+    max-height: 120px;
+    position: relative;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs {
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper {
+    z-index: 20;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  #light #light {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  #light .home_wrapper {
+    width: 100%;
+  }
+  #light .home_wrapper .homepage_container {
+    width: 100%;
+  }
+  #light .home_wrapper .homepage_container .card .adminControl {
+    display: hidden;
+    position: absolute;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .card_image {
+    max-width: 120px;
+    width: 100px;
+    height: 100px;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .song_info {
+    margin: 0;
+    z-index: 50;
+    top: -55px;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper {
+    max-height: 120px;
+    position: relative;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs {
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper {
+    z-index: 20;
+  }
+  #light .home_wrapper .homepage_container .card .card_content .audio_wrapper .audioKnobs .playpausewrapper .playButton {
+    font-size: 2rem;
+    margin: 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'lato', sans-serif;
+  -webkit-transition: background-color 0.45s linear, color 0.35s linear;
+  transition: background-color 0.45s linear, color 0.35s linear;
+}
+/*# sourceMappingURL=App.css.map */
