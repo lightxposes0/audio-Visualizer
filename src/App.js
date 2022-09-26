@@ -62,7 +62,7 @@ const App = () => {
         if (id === 1) {
             signInWithEmailAndPassword(authentication, email, password)
             .then((response) => {
-                navigate('/home')
+                navigate(email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com" ? '/adminHome' : '/home')
                 localStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
             })
         }
@@ -111,7 +111,7 @@ const App = () => {
 
                         
                         
-                        <NavBar toggleTheme={() => toggleTheme()}/>
+                        <NavBar email = {email} toggleTheme={() => toggleTheme()}/>
 
                         {/* // handleaction() ?? */}
                         <Routes>
@@ -146,7 +146,7 @@ const App = () => {
                             <Route path="/" element={<Navigate to = "home" />} />
                             <Route path="/home" element={<Home theme = {theme} />} />
                             <Route path="/adminHome" element={<HomeAdmin theme = {theme} />} />
-                            <Route path="/add" element={<AddEditSong />} />
+                            <Route path="/add" element={<AddEditSong email={email} />} />
                             <Route path="/update/:id" element={<AddEditSong />} />
                             <Route path="/audio-Visualizer" element={<Home />} />
                         </Routes>

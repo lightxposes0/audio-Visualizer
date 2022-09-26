@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
-const NavBar = ({toggleTheme}) => {
+const NavBar = ({toggleTheme, email}) => {
     let navigate = useNavigate();
     const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -34,7 +34,7 @@ const NavBar = ({toggleTheme}) => {
             
                 <div className='navBarItemWrap'>
                     <div  className="navBarItem">
-                    <Link to="/home">
+                    <Link to={email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com" ? "/adminHome" : "/home"}>
                         <img id='logo'  style={{width: "65px"}} src={logo} alt="logo" />
                     </Link>
                     </div>

@@ -13,7 +13,7 @@ const initialState = {
 
 
 
-const AddEditSong = (e) => {
+const AddEditSong = ({e, email}) => {
     const [data, setData] = useState(initialState);
     const {title, artist} = data;
     const [file, setFile] = useState(null);
@@ -57,7 +57,7 @@ const AddEditSong = (e) => {
         }
     };
 
-
+    // handle image upload
     useEffect(() => {
 
         // Should run only when a file is being set.. Run only when file is being uploaded. 
@@ -116,12 +116,13 @@ const AddEditSong = (e) => {
 
 
 
+    // Handle AUDIO upload
 
     useEffect(() => {
 
         // Should run only when a file is being set.. Run only when file is being uploaded. 
         const uploadFile = (e) => {
-            if(!title) {
+            if(!title || !artist) {
                 alert("No input fields filled.");
                 navigate("/add");
             };
@@ -203,16 +204,23 @@ const AddEditSong = (e) => {
         let errors = validate();
         if(Object.keys(errors).length) return setErrors(errors);
 
+
         setIsSubmit(true);
 
         if(!id) {
-            try {
-                await addDoc(collection(db, "songs"), {
-                    ...data,
-                    timestamp: serverTimestamp()
-                })
-            } catch (error) {
-                console.log(error);
+            if (file && imageFile) {
+            
+                try {
+                    await addDoc(collection(db, "songs"), {
+                        ...data,
+                        timestamp: serverTimestamp()
+                    })
+                } catch (error) {
+                    console.log(error);
+                }
+            } else {
+                alert("Some input fields was empty. No files selected 1/2?")
+                navigate("/add")
             }
             
         } else {
@@ -272,9 +280,8 @@ const AddEditSong = (e) => {
                                             className='input_file'
                                             type="file" 
                                             label="Upload" 
-                                            accept='audio/*'
 
-                                            onChange={(e) => {setFile(e.target.files[0]); setIsSubmit(true);}} />
+                                            onChange={(e) => {if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com"){setFile(e.target.files[0]); setIsSubmit(true);} else {alert("You have no access to this feature!"); navigate("/add");}}} />
 
 
                                             {/* IMG file */}
@@ -287,7 +294,7 @@ const AddEditSong = (e) => {
                                             label="Upload" 
                                             accept='image/*'
 
-                                            onChange={(e) => {setImageFile(e.target.files[0]); setIsSubmit(true);}} />
+                                            onChange={(e) => {if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {setImageFile(e.target.files[0]); setIsSubmit(true);} else {alert("You have no access to this feature!"); navigate("/add");}}} />
                                     </div>
 
                                     <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>
