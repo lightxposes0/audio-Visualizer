@@ -1,7 +1,6 @@
 {
   "name": "crud",
   "version": "0.1.0",
-  "homepage": "https://stianlars1.github.io/audio-Visualizer",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",

@@ -315,7 +315,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 20rem;
             width: 300px;
             border: 0.5px solid var(--card-box-border);
             box-shadow: 1px 2px 10px var(--card-box-border);
@@ -377,12 +376,12 @@
                         font-family: 'Lato', sans-serif;
                         font-weight: 700;
                         cursor: pointer;
-                        transition: all .25s ease;
-        
-                        // Transition?? FX
-                        @keyframes buttonTransform {
-                            
+                        transition: background-color .2s ease;
+                        &:nth-last-child(1) {
+                            margin-top: 25px;
                         }
+        
+
         
                         &:hover {
                             background-color: $addsongbuttonhover;

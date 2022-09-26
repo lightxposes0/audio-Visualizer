@@ -47,6 +47,7 @@ const Home = (props) => {
                 snapshot.docs.forEach((doc) => {
                     arrayList.push({ id: doc.id, ...doc.data() });
                 });
+                arrayList.sort((a, b) => b.timestamp.toMillis() - a.timestamp.toMillis());
                 setSongs(arrayList);
                 setLoading(false);
 

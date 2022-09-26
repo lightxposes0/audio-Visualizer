@@ -1,6 +1,6 @@
 import React from 'react'
 import {useNavigate, Link} from "react-router-dom";
-import logo from "../asset/testttt.png"
+import logo from "../asset/homeLinkLogo.png"
 import {useEffect, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from "@fortawesome/free-solid-svg-icons";

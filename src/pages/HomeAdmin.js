@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useState, useRef } from 'react';
+import React, { useEffect, useState  } from 'react';
 import {collection, deleteDoc,  onSnapshot} from 'firebase/firestore';
 import {db} from '../firebase'
 import { useNavigate} from 'react-router-dom';
@@ -46,6 +46,7 @@ const Home = (props) => {
                 snapshot.docs.forEach((doc) => {
                     arrayList.push({ id: doc.id, ...doc.data() });
                 });
+                arrayList.sort((a, b) => b.timestamp.toMillis() - a.timestamp.toMillis());
                 setSongs(arrayList);
                 setLoading(false);
 
@@ -117,25 +118,11 @@ const Home = (props) => {
                                                 try  {
                                                     deleteDoc(doc(db, "songs", data.id))
                                                     } catch (error)  {console.log(error)}}
-                                                
-
-                                        
 
                                         }} icon={faTrash} />
 
-
-
-
                                     </div>
 
-                                                
-                                            
-                                            
-                                        
-
-                                
-
-                                
                                 </article>
                             )
                         })}
@@ -147,15 +134,3 @@ const Home = (props) => {
 }
 
 export default Home
-
-
-
-
-// if (window.confirm("Are you sure you want to delete this song?")) {
-//     try {
-//         deleteDoc(doc(db, "songs", props.id));
-//         setSongs(songs.filter((song) => props.id !== props.id));
-//     } catch(error) {
-//         console.log(error);
-//     }
-// };

@@ -407,6 +407,45 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 1;
+  -webkit-animation: opacitychange 2s ease;
+          animation: opacitychange 2s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes opacitychange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes opacitychange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
 }
 
 #dark .form_container .form_wrapper .form-heading {
@@ -482,9 +521,11 @@
   transition: all .25s ease;
 }
 
-@-webkit-keyframes buttonTransform {}
+#dark .form_container .form_wrapper .authButtons:nth-last-child(1) {
+  margin-top: 25px;
+}
 
-@keyframes buttonTransform {}#dark .form_container .form_wrapper .authButtons:hover {
+#dark .form_container .form_wrapper .authButtons:hover {
   background-color: #C6556B;
 }
 
@@ -497,10 +538,13 @@
     width: 50%;
   }
   #dark .form_container .form_wrapper .formBox {
-    width: 100%;
+    width: 70%;
   }
   #dark .form_container .form_wrapper .formBox form .input_text {
     font-size: 1.5rem;
+  }
+  #dark .form_container .form_wrapper .authButtons {
+    width: 70%;
   }
 }
 
@@ -831,6 +875,8 @@
   -webkit-transition: all .25s ease;
   transition: all .25s ease;
 }
+
+@-webkit-keyframes buttonTransform {}
 
 @keyframes buttonTransform {}#dark .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
   background-color: #C6556B;
@@ -1345,7 +1391,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 20rem;
   width: 300px;
   border: 0.5px solid var(--card-box-border);
   -webkit-box-shadow: 1px 2px 10px var(--card-box-border);
@@ -1425,11 +1470,15 @@
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   cursor: pointer;
-  -webkit-transition: all .25s ease;
-  transition: all .25s ease;
+  -webkit-transition: background-color .2s ease;
+  transition: background-color .2s ease;
 }
 
-@keyframes buttonTransform {}#light .form_container .form_wrapper .authButtons:hover {
+#light .form_container .form_wrapper .authButtons:nth-last-child(1) {
+  margin-top: 25px;
+}
+
+#light .form_container .form_wrapper .authButtons:hover {
   background-color: #C6556B;
 }
 
@@ -1906,7 +1955,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'lato', sans-serif;
-  -webkit-transition: background-color 0.45s linear, color 0.45s linear;
-  transition: background-color 0.45s linear, color 0.45s linear;
+  -webkit-transition: background-color 0.45s linear, color 0.35s linear;
+  transition: background-color 0.45s linear, color 0.35s linear;
 }
 /*# sourceMappingURL=App.css.map */

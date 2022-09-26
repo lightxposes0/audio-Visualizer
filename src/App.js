@@ -34,10 +34,21 @@ const App = () => {
     }, [])
 
 
+    // Handle register og login confusion..
+    const handleLoginRegisterConfusion = (id) => {
+        if (id === 1) {
+            navigate("/register")
+        }
+
+        if (id === 2) {
+            navigate("/login")
+        }
+    }
+
+
     // handle login
     const handleAction = (id) => {
         const authentication = getAuth();
-        console.log(email)
 
         if (id === 2) {
             createUserWithEmailAndPassword(authentication, email, password)
@@ -58,7 +69,7 @@ const App = () => {
 
         if (id === 3) {
 
-            if (email == "stian.larsen@mac.com") {
+            if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {
             signInWithEmailAndPassword(authentication, email, password)
             .then((response) => {
                 navigate('/adminHome')
@@ -107,25 +118,32 @@ const App = () => {
                             <Route path='/login' element={<Form 
                                                             setEmail={setEmail} 
                                                             setPassword={setPassword} 
-                                                            handleAction={() => handleAction(1)} 
-                                                            title="Login" />} 
+                                                            handleAction={() => handleAction(1)}
+                                                            handleLoginRegisterConfusion = {() => handleLoginRegisterConfusion(1)}
+                                                            title="Login"
+                                                            changeScreen="Go and Register"/>} 
 
                                                             />
                             <Route path='/register' element={<Form 
                                                                 setEmail={setEmail}
                                                                 setPassword={setPassword} 
                                                                 handleAction = {() => handleAction(2)}
-                                                                title="Register" />} 
+                                                                title="Register"
+                                                                handleLoginRegisterConfusion = {() => handleLoginRegisterConfusion(2)}
+                                                                changeScreen="Go to Login"/>} 
 
                                                                 />
                             <Route path='/admin' element={<Form 
                                                                 setEmail={setEmail}
                                                                 setPassword={setPassword} 
                                                                 handleAction = {() => handleAction(3)}
-                                                                title="Do some admin stuff" />} 
+                                                                title="Do some admin stuff"
+                                                                handleLoginRegisterConfusion = {() => handleLoginRegisterConfusion(2)}
+                                                                changeScreen="Go to Login"     
+                                                                />} 
 
                                                                 />
-                            <Route path="/" element={<Home theme = {theme} />} />
+                            <Route path="/" element={<Navigate to = "home" />} />
                             <Route path="/home" element={<Home theme = {theme} />} />
                             <Route path="/adminHome" element={<HomeAdmin theme = {theme} />} />
                             <Route path="/add" element={<AddEditSong />} />

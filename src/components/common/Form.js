@@ -2,7 +2,7 @@ import * as React from 'react';
 import Button from './Button';
 
 
-export default function BasicTextFields({title, setPassword, setEmail, handleAction}) {
+export default function BasicTextFields({title, setPassword, setEmail, handleAction, changeScreen, handleLoginRegisterConfusion}) {
     return (
         <div className='form_container'>
             <div className='form_wrapper'>
@@ -22,6 +22,7 @@ export default function BasicTextFields({title, setPassword, setEmail, handleAct
                 
 
                 <Button handleAction={handleAction} title={title}/>
+                <Button handleAction={handleLoginRegisterConfusion} title={changeScreen}/>
             </div>
         </div>
     );
