@@ -111,6 +111,17 @@
           justify-content: center;
   overflow-x: hidden;
   overflow-y: hidden;
+  z-index: 100;
+}
+
+#dark .home_wrapper .testParticle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.2;
 }
 
 #dark .home_wrapper .homepage_container {
@@ -179,6 +190,7 @@
   transition: box-shadow .4s ease-in-out, transform .2s ease, -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
   z-index: 100;
   position: relative;
+  background-color: var(--color-page-background);
 }
 
 #dark .home_wrapper .homepage_container .cardSelected:hover {
@@ -422,6 +434,7 @@
   transition: -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
   transition: box-shadow .4s ease-in-out, transform .2s ease;
   transition: box-shadow .4s ease-in-out, transform .2s ease, -webkit-box-shadow .4s ease-in-out, -webkit-transform .2s ease;
+  background-color: var(--color-page-background);
 }
 
 #dark .home_wrapper .homepage_container .card:hover {
@@ -872,6 +885,17 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 1000;
+}
+
+#dark .form_container .testParticle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.2;
 }
 
 #dark .form_container .form_wrapper {
@@ -1049,6 +1073,17 @@
           justify-content: center;
   background-color: var(--color-page-background);
   padding-top: 20px;
+  z-index: 1000000;
+}
+
+#dark .add_edit_container .testParticle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.2;
 }
 
 #dark .add_edit_container .add_Edit_Song_container {
@@ -1057,6 +1092,7 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  z-index: 10000;
 }
 
 #dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper {
@@ -1070,6 +1106,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 10000;
 }
 
 #dark .add_edit_container .add_Edit_Song_container .add_edit_wrapper .isSubmit_loader {
@@ -1239,6 +1276,7 @@
   background-color: var(--color-page-background);
   color: var(--color-text);
   position: relative;
+  z-index: 10000;
 }
 
 #dark .navBarMenu::after {
@@ -1636,6 +1674,7 @@
   font-family: 'lato', sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
+  z-index: 1000000;
 }
 
 #light .home_wrapper {
@@ -1651,6 +1690,17 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 1000;
+}
+
+#light .home_wrapper .testParticle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.2;
 }
 
 #light .home_wrapper .homepage_container {
@@ -1665,6 +1715,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 100;
 }
 
 @media screen and (min-width: 851px) and (max-width: 1200px) {
@@ -2178,6 +2229,17 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 10000;
+}
+
+#light .form_container .testParticle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.2;
 }
 
 #light .form_container .form_wrapper {
@@ -2195,6 +2257,28 @@
   border: 0.5px solid var(--card-box-border);
   -webkit-box-shadow: 1px 2px 10px var(--card-box-border);
           box-shadow: 1px 2px 10px var(--card-box-border);
+  z-index: 100000;
+  -webkit-animation: opacitychange 2s ease;
+          animation: opacitychange 2s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@keyframes opacitychange {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
 }
 
 #light .form_container .form_wrapper .form-heading {
@@ -2330,6 +2414,17 @@
           justify-content: center;
   background-color: var(--color-page-background);
   padding-top: 20px;
+  z-index: 1000;
+}
+
+#light .add_edit_container .testParticle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+  opacity: 0.2;
 }
 
 #light .add_edit_container .add_Edit_Song_container {
@@ -2338,6 +2433,7 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  z-index: 1000;
 }
 
 #light .add_edit_container .add_Edit_Song_container .add_edit_wrapper {
@@ -2850,5 +2946,9 @@
   font-family: 'lato', sans-serif;
   -webkit-transition: background-color 0.45s linear, color 0.35s linear;
   transition: background-color 0.45s linear, color 0.35s linear;
+}
+
+.app {
+  z-index: 10;
 }
 /*# sourceMappingURL=App.css.map */

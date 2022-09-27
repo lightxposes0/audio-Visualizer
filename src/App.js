@@ -6,12 +6,19 @@ import HomeAdmin from './pages/HomeAdmin';
 import NavBar from './components/NavBar';
 
 import { createContext, useState, useEffect } from 'react';
-import './components/css/App.css';
 
 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 
 import Form from './components/common/Form'
+
+
+
+// testing
+import Particles from "react-particles";
+import { loadFull } from "tsparticles";
+
+
 
 
 
@@ -24,6 +31,20 @@ const App = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     let navigate = useNavigate();
+
+
+    const particlesInit = async (main) => {
+        console.log(main);
+    
+        // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(main);
+    };
+
+
+
+
 
     useEffect(() => {
         let authToken = localStorage.getItem('Auth Token')
@@ -108,8 +129,6 @@ const App = () => {
                 <ThemeContext.Provider value = {{theme, toggleTheme}}>
 
 
-
-                        
                         
                         <NavBar email = {email} toggleTheme={() => toggleTheme()}/>
 
@@ -150,6 +169,9 @@ const App = () => {
                             <Route path="/update/:id" element={<AddEditSong />} />
                             <Route path="/audio-Visualizer" element={<Home />} />
                         </Routes>
+
+
+
                 </ThemeContext.Provider>
         </div>
 
