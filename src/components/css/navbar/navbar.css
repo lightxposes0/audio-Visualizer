@@ -8,6 +8,8 @@
   --card-box-border-hover: rgba(63, 63, 63, 0.733);
   --card-box-border-hover-dark: #7f7f7f;
   --card-box-border-blue: #7ee4d6b0;
+  --card-play-bg-dark: #404040;
+  --default-darkmode-bg: #06041E;
 }
 
 * {

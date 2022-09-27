@@ -72,24 +72,37 @@ const AudioVisualizer = (props) => {
         }
     };
 
-
+    const buttonRef = useRef();
     // Handle play pause button
     const handlePlayPause =  (e) => {
         // Get a view of what the "click" registers:
 
         // if playing == pause
         if ( ! isPlaying ) {
-            console.log("not playing.. Start playing");
+            console.log("Play:");
+
+                        // play
             audioTrackRef.current.play()
             setIsPlaying(isClicked => true)
+
+            // Highlight the card playing
+            let cardref = buttonRef.current.closest(".card");
+            cardref.className = "cardSelected";
+
             return
 
         } 
         else {
-            console.log("Is playing.. will pause")
+                        // Highlight the card playing
+
+            let cardref = buttonRef.current.closest(".cardSelected");
+            cardref.className = "card";
+            console.log("Pause")
+
+            // pause
             audioTrackRef.current.pause()
             setIsPlaying(isClicked => false);
-            
+
             return
         }
 
@@ -105,7 +118,9 @@ const AudioVisualizer = (props) => {
             </div> 
             <div className='audioKnobs'>
                 
-                <button  className="playpausewrapper" onClick={handlePlayPause}>
+
+
+                <button ref={buttonRef}  className="playpausewrapper" onClick={handlePlayPause}>
                         <FontAwesomeIcon className={ isPlaying ? 'playButton activeButton' : 'playButton notActiveButton'} icon={ isPlaying ? pauseButton : playButton} />
                 </button>
 

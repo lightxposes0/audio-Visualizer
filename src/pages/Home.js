@@ -95,7 +95,9 @@ const Home = (props) => {
                         {   songs.map((data) => {
 
                             return (
-                                <article key={data.id} className='card'>
+
+
+                                <article key={data.id} className='card'> 
                                     <div className='card_content'>
                                         <img className='card_image' src={data.image} alt=""/>
 
