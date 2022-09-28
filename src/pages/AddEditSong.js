@@ -33,7 +33,6 @@ const AddEditSong = ({e, email}) => {
 
     // BG
     const particlesInit = async (main) => {
-        console.log(main);
     
         // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
         // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
@@ -236,6 +235,7 @@ const AddEditSong = ({e, email}) => {
                         ...data,
                         timestamp: serverTimestamp()
                     })
+                    
                 } catch (error) {
                     console.log(error);
                 }
@@ -254,8 +254,12 @@ const AddEditSong = ({e, email}) => {
                 console.log(error);
             }
         }
-        
-        navigate("/home");
+
+        if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {
+            navigate("/adminHome");
+        } else {
+            navigate("/home");
+        }
     };
 
 
@@ -283,6 +287,7 @@ const AddEditSong = ({e, email}) => {
         })
         .catch(e => {
             console.log("something went wrong");
+            return
         })
 
         setIsSubmit(true);
@@ -356,7 +361,7 @@ const AddEditSong = ({e, email}) => {
                                     </div>
 
                                     <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>
-                                    <button onClick={(e) => {navigate(email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com" ? "/adminHome" : "/home"); console.log(email)}} style={{margin: "20px 0px"}} className="add_edit_submit_btn">Back to home</button>
+                                    <button onClick={(e) => {if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") { navigate("/adminHome");} else {navigate("/home");}}} style={{margin: "20px 0px"}} className="add_edit_submit_btn">Back to home</button>
                                 </div>
                             </form>
                             </>

@@ -36,7 +36,7 @@ const AudioVisualizer = (props) => {
                 waveColor: "red",
                 cursorColor: "OrangeRed",
                 preload: true,
-                backend: "WebAudio", // originally = "MediaElement"
+                backend: "MediaElement", // originally = "MediaElement"
                 barWidth: 2,
                 barHeight: 1, // the height of the wave
                 fillParent: true,
