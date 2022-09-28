@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap");
 :root {
   --color-page-background: #fff;
   --color-text: #06041E;
@@ -1662,7 +1663,7 @@
 #light {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'lato', sans-serif;
+  font-family: 'Lato', sans-serif;
   overflow-x: hidden;
   overflow-y: hidden;
   z-index: 1000000;
@@ -2652,7 +2653,7 @@
   border: 0;
   color: var(--color-text);
   font-size: 1.2rem;
-  font-family: 'Lato', sans-serif;
+  font-family: 'lato', sans-serif;
   font-weight: 700;
   cursor: pointer;
   -webkit-transition: all .25s ease;
@@ -2956,7 +2957,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'lato', sans-serif;
+  font-family: 'Lato', sans-serif;
   -webkit-transition: background-color 0.45s linear, color 0.35s linear;
   transition: background-color 0.45s linear, color 0.35s linear;
 }

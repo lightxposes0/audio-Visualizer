@@ -1,13 +1,15 @@
 @import './variables';
 @import './darkmode//darkmode';
 @import './darkmode/lightMode';
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap');
+
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'lato', sans-serif;
+    font-family: 'Lato', sans-serif;
     
     transition: background-color 0.45s linear, color 0.35s linear;
 
