@@ -45,7 +45,11 @@ const AddEditSong = ({e, email}) => {
         let authToken = localStorage.getItem('Auth Token')
 
         if (authToken) {
-            navigate('/add')
+            if (id) {
+                return
+            } else {
+                navigate('/add')
+            }
         }
 
         if (!authToken) {
@@ -225,7 +229,7 @@ const AddEditSong = ({e, email}) => {
         setIsSubmit(true);
 
         if(!id) {
-            if (file && imageFile) {
+            if ((file && imageFile) || id) {
             
                 try {
                     await addDoc(collection(db, "songs"), {
@@ -352,6 +356,7 @@ const AddEditSong = ({e, email}) => {
                                     </div>
 
                                     <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>
+                                    <button onClick={(e) => {navigate(email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com" ? "/adminHome" : "/home"); console.log(email)}} style={{margin: "20px 0px"}} className="add_edit_submit_btn">Back to home</button>
                                 </div>
                             </form>
                             </>

@@ -6,6 +6,7 @@ import {ClipLoader} from 'react-spinners';
 import AudioVisualizer from "../components/AudioVisualizer"
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
+import { FirebaseError } from 'firebase/app';
 
 
 
@@ -18,7 +19,6 @@ const Home = (props) => {
 
     const navigate = useNavigate();
     const particlesInit = async (main) => {
-        console.log(main);
     
         // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
         // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
@@ -33,7 +33,7 @@ const Home = (props) => {
         let authToken = localStorage.getItem('Auth Token')
 
         if (authToken) {
-            if (props.email == "stian.larsen@mac.com" || props.mail == "Stian.larsen@mac.com") {
+            if (props.email == "stian.larsen@mac.com" || props.email == "Stian.larsen@mac.com") {
                 navigate("/adminHome")
             } else {
                 navigate('/home')
@@ -86,9 +86,9 @@ const Home = (props) => {
 
     // Log out
     const handleLogout = () => {
-        sessionStorage.removeItem('Auth Token');
-        navigate('/login')
-    }
+        localStorage.removeItem('Auth Token');
+        navigate('/login');
+    };
     
     return (
         <div className='home_wrapper'>
