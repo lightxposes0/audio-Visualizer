@@ -33,9 +33,12 @@ const Home = (props) => {
         let authToken = localStorage.getItem('Auth Token')
 
         if (authToken) {
-            navigate('/home')
+            if (props.email == "stian.larsen@mac.com" || props.mail == "Stian.larsen@mac.com") {
+                navigate("/adminHome")
+            } else {
+                navigate('/home')
+            }
 
-        
         }
 
         if (!authToken) {

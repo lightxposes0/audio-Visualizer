@@ -163,8 +163,8 @@ const App = () => {
 
                                                                 />
                             <Route path="/" element={<Navigate to = "home" />} />
-                            <Route path="/home" element={<Home theme = {theme} />} />
-                            <Route path="/adminHome" element={<HomeAdmin theme = {theme} />} />
+                            <Route path="/home" element={<Home email={email} theme = {theme} />} />
+                            <Route path="/adminHome" element={<HomeAdmin email={email} theme = {theme} />} />
                             <Route path="/add" element={<AddEditSong email={email} />} />
                             <Route path="/update/:id" element={<AddEditSong />} />
                             <Route path="/audio-Visualizer" element={<Home />} />

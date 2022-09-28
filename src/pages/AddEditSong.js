@@ -7,6 +7,7 @@ import { getDownloadURL, ref, uploadBytesResumable} from 'firebase/storage'
 import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
+import Compress from "browser-image-compression";
 
 const initialState = {
     title: "",
@@ -55,6 +56,7 @@ const AddEditSong = ({e, email}) => {
 
 
 
+
     useEffect(() => {
         id && getSingleUser()
     }, [id]);
@@ -76,6 +78,8 @@ const AddEditSong = ({e, email}) => {
                 alert("No input fields filled.");
                 return;
             };
+
+
 
             const name = new Date().getTime() + imageFile.name;
             const storageRef = ref(Storage, 'audioVisualizer/images/'+ name);
@@ -123,6 +127,9 @@ const AddEditSong = ({e, email}) => {
 
 
     }, [imageFile]);
+
+
+    
 
 
 
@@ -247,6 +254,40 @@ const AddEditSong = ({e, email}) => {
         navigate("/home");
     };
 
+
+    // compress and set img file
+    function compressImage(e)  {
+    if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {
+
+        const file = e.target.files[0]
+        // Compression config
+        const options = {
+            maxSizeMB: 1.5,
+            useWebWorker: true
+        }
+
+
+        Compress(file, options)
+        .then(compressedBlob => {
+            compressedBlob.lastModifiedDate = new Date()
+
+            // Conver the blob to file
+            const convertedBlobFile = new File([compressedBlob], file.name, { type: file.type, lastModified: Date.now()})
+            setImageFile(convertedBlobFile);
+
+            // Here you are free to call any method you are gonna use to upload your file example uploadToCloudinaryUsingPreset(convertedBlobFile)
+        })
+        .catch(e => {
+            console.log("something went wrong");
+        })
+
+        setIsSubmit(true);
+    } 
+
+    else {alert("You have no access to this feature!"); navigate("/add");}
+    }
+    
+
     return (
         <div className='add_edit_container'>
             <div className='add_Edit_Song_container'>
@@ -305,7 +346,9 @@ const AddEditSong = ({e, email}) => {
                                             label="Upload" 
                                             accept='image/*'
 
-                                            onChange={(e) => {if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {setImageFile(e.target.files[0]); setIsSubmit(true);} else {alert("You have no access to this feature!"); navigate("/add");}}} />
+                                            onChange={compressImage}
+
+                                            />
                                     </div>
 
                                     <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>

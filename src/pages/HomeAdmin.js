@@ -15,7 +15,6 @@ import { loadFull } from "tsparticles";
 
 
 
-
 const Home = (props) => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -38,14 +37,19 @@ const Home = (props) => {
 
 
         if (authToken) {
-            navigate('/adminHome')
-
-        
+            if (props.email == "stian.larsen@mac.com" || props.email == "Stian.larsen@mac.com") {
+            navigate('/adminHome');
+            }  else {
+                navigate("/login")
+            }
         }
-
         if (!authToken) {
             navigate('/admin')
         }
+        
+
+
+
     }, []);
 
 
