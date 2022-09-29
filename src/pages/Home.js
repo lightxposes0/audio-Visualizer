@@ -6,7 +6,6 @@ import {ClipLoader} from 'react-spinners';
 import AudioVisualizer from "../components/AudioVisualizer"
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import { FirebaseError } from 'firebase/app';
 
 
 
@@ -33,7 +32,7 @@ const Home = (props) => {
         let authToken = localStorage.getItem('Auth Token')
 
         if (authToken) {
-            if (props.email == "stian.larsen@mac.com" || props.email == "Stian.larsen@mac.com") {
+            if (props.email === "stian.larsen@mac.com" || props.email === "Stian.larsen@mac.com") {
                 navigate("/adminHome")
             } else {
                 navigate('/home')
@@ -89,7 +88,8 @@ const Home = (props) => {
         localStorage.removeItem('Auth Token');
         navigate('/login');
     };
-    
+
+
     return (
         <div className='home_wrapper'>
                 <Particles
@@ -228,33 +228,35 @@ const Home = (props) => {
                     <button className='logOutButton' onClick={handleLogout}>Logout</button>
 
 
-                    {/* // Map through our song library and display all items on homepage */}
 
-                        {   songs.map((data) => {
+                        {  
+                                songs.length && songs.map((data) => {
 
-                            return (
+                                return (
 
 
-                                <article key={data.id} className='card'> 
-                                    <div className='card_content'>
-                                        <img className='card_image' src={data.image} alt=""/>
+                                    <article key={data.id} className='card'> 
+                                        <div className='card_content'>
+                                            <img className='card_image' src={data.image} alt=""/>
 
-                                        <div className='song_info'>
-                                        <h2>{data.title}</h2>
-                                        <h4>{data.artist}</h4>
+                                            <div className='song_info'>
+                                            <h2>{data.title}</h2>
+                                            <h4>{data.artist}</h4>
+                                            </div>
+
+
+                                            <div className='audio_wrapper'>
+                                            <AudioVisualizer audio={data.audio}/>
+                                            </div>
+
                                         </div>
+                                    
 
+                                    </article>
+                                )
+                            }) 
 
-                                        <div className='audio_wrapper'>
-                                        <AudioVisualizer audio={data.audio}/>
-                                        </div>
-
-                                    </div>
-                                
-
-                                </article>
-                            )
-                        })}
+                        }
                     </div>
                 }
             </>

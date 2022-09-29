@@ -64,6 +64,8 @@ const AddEditSong = ({e, email}) => {
         id && getSingleUser()
     }, [id]);
 
+
+    // gets that song specific for update...
     const getSingleUser = async () => {
         const documentRef = doc(db, "songs", id);
         const snapshot = await getDoc(documentRef);
@@ -255,7 +257,7 @@ const AddEditSong = ({e, email}) => {
             }
         }
 
-        if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {
+        if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com") {
             navigate("/adminHome");
         } else {
             navigate("/home");
@@ -265,7 +267,7 @@ const AddEditSong = ({e, email}) => {
 
     // compress and set img file
     function compressImage(e)  {
-    if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") {
+    if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com") {
 
         const file = e.target.files[0]
         // Compression config
@@ -342,7 +344,7 @@ const AddEditSong = ({e, email}) => {
                                             type="file" 
                                             label="Upload" 
 
-                                            onChange={(e) => {if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com"){setFile(e.target.files[0]); setIsSubmit(true);} else {alert("You have no access to this feature!"); navigate("/add");}}} />
+                                            onChange={(e) => {if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com"){setFile(e.target.files[0]); setIsSubmit(true);} else {alert("You have no access to this feature!"); navigate("/add");}}} />
 
 
                                             {/* IMG file */}
@@ -361,7 +363,7 @@ const AddEditSong = ({e, email}) => {
                                     </div>
 
                                     <button primary type="submit" disabled={progress !== null && progress < 100} className='add_edit_submit_btn' >Submit</button>
-                                    <button onClick={(e) => {if (email == "stian.larsen@mac.com" || email == "Stian.larsen@mac.com") { navigate("/adminHome");} else {navigate("/home");}}} style={{margin: "20px 0px"}} className="add_edit_submit_btn">Back to home</button>
+                                    <button onClick={(e) => {if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com") { navigate("/adminHome");} else {navigate("/home");}}} style={{margin: "20px 0px"}} className="add_edit_submit_btn">Back to home</button>
                                 </div>
                             </form>
                             </>

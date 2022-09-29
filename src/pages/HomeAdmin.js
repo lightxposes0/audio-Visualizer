@@ -36,7 +36,7 @@ const Home = (props) => {
 
 
         if (authToken) {
-            if (props.email == "stian.larsen@mac.com" || props.email == "Stian.larsen@mac.com") {
+            if (props.email === "stian.larsen@mac.com" || props.email === "Stian.larsen@mac.com") {
             navigate('/adminHome');
             }  else {
                 navigate("/login")
@@ -226,7 +226,9 @@ const Home = (props) => {
                     <h1 className='homeTitleSongs'>Songs</h1>
                     <button className='logOutButton' onClick={handleLogout}>Logout</button>
 
-                        {   songs.map((data) => {
+                        {                              
+                            songs.length &&  songs.slice(0, 5).map((data) => {
+                            console.log("Fetching...")
 
                             return (
                                 <article key={data.id} className='card'>
@@ -265,7 +267,9 @@ const Home = (props) => {
 
                                 </article>
                             )
-                        })}
+                            }
+                            )
+                        }
                     </div>
                 }
             </>
