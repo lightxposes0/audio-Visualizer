@@ -277,7 +277,7 @@ const Home = (props) => {
 
                                     <article key={data.id} className='card'> 
                                         <div className='card_content'>
-                                            <img className='card_image' src={data.image} alt=""/>
+                                            <img style={{width : "160px", height : "160px"}} className='card_image' src={data.image} alt=""/>
 
                                             <div className='song_info'>
                                             <h2>{data.title}</h2>
