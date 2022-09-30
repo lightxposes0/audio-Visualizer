@@ -35,13 +35,13 @@ const AudioVisualizer = (props) => {
                 progressColor: "#13AEA2",
                 waveColor: "red",
                 cursorColor: "OrangeRed",
-                preload: true,
-                backend: "WebAudio", // originally = "MediaElement"
+                backend: "MediaElement", // originally = "MediaElement"
                 barWidth: 2,
                 barHeight: 1, // the height of the wave
                 fillParent: true,
                 hideScrollbar: true,
                 responsive: true,
+                pixelRatio: 1,
                 
             });
             audioTrackRef.current.load(props.audio);
