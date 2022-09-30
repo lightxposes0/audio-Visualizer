@@ -146,17 +146,68 @@
   }
 }
 
+#dark .home_wrapper .homepage_container .changeSongList {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#dark .home_wrapper .homepage_container .changeSongList .changeSongListButtons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#dark .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton {
+  width: 130px;
+  height: 50px;
+  border-radius: 0.4rem;
+  background-color: #BE3030;
+  font-family: "Lato";
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+  color: var(--color-text);
+}
+
+#dark .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:active {
+  background-color: #13AEA2;
+}
+
+#dark .home_wrapper .homepage_container .changeSongList h2 {
+  font-family: 'Lato';
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
 #dark .home_wrapper .homepage_container .logOutButton {
   margin-top: 20px;
-  width: 80px;
-  height: 34px;
+  width: 100px;
+  height: 38px;
   margin-bottom: 2.5rem;
   cursor: pointer;
   background-color: #13AEA2;
-  border-radius: 1rem;
+  border-radius: 1.4rem;
   border: 0;
   font-family: 'Lato';
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-text);
   -webkit-transition: background-color .18s ease;
   transition: background-color .18s ease;
 }
@@ -898,7 +949,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  opacity: 1;
   -webkit-animation: opacitychange 2s ease;
           animation: opacitychange 2s ease;
   -webkit-animation-fill-mode: both;
@@ -906,12 +956,6 @@
 }
 
 @-webkit-keyframes opacitychange {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
   0% {
     -webkit-transform: translateY(100px);
             transform: translateY(100px);
@@ -923,12 +967,6 @@
 }
 
 @keyframes opacitychange {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
   0% {
     -webkit-transform: translateY(100px);
             transform: translateY(100px);
@@ -1335,9 +1373,7 @@
   transition: all .25s ease;
 }
 
-@-webkit-keyframes buttonTransform {}
-
-@keyframes buttonTransform {}#dark .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
+#dark .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
   background-color: #C6556B;
 }
 
@@ -1716,19 +1752,70 @@
   }
 }
 
+#light .home_wrapper .homepage_container .changeSongList {
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 3rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#light .home_wrapper .homepage_container .changeSongList .changeSongListButtons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#light .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton {
+  width: 130px;
+  height: 50px;
+  border-radius: 0.4rem;
+  background-color: #BE3030;
+  font-family: "Lato";
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+  color: var(--color-page-background);
+}
+
+#light .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:active {
+  background-color: #13AEA2;
+}
+
+#light .home_wrapper .homepage_container .changeSongList h2 {
+  font-family: 'Lato';
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
 #light .home_wrapper .homepage_container .logOutButton {
   margin-top: 20px;
-  width: 80px;
-  height: 34px;
+  width: 100px;
+  height: 38px;
   margin-bottom: 2.5rem;
   cursor: pointer;
   background-color: #13AEA2;
-  border-radius: 1rem;
+  border-radius: 1.4rem;
   border: 0;
   -webkit-transition: background-color .18s ease;
   transition: background-color .18s ease;
   font-family: 'Lato';
-  font-size: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-page-background);
 }
 
 #light .home_wrapper .homepage_container .logOutButton:hover, #light .home_wrapper .homepage_container .logOutButton:focus {
@@ -2266,19 +2353,24 @@
   -webkit-box-shadow: 1px 2px 10px var(--card-box-border);
           box-shadow: 1px 2px 10px var(--card-box-border);
   z-index: 100000;
-  -webkit-animation: opacitychange 2s ease;
-          animation: opacitychange 2s ease;
+  -webkit-animation: moveY 2s ease;
+          animation: moveY 2s ease;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
 
-@keyframes opacitychange {
+@-webkit-keyframes moveY {
   0% {
-    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
   100% {
-    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
   }
+}
+
+@keyframes moveY {
   0% {
     -webkit-transform: translateY(100px);
             transform: translateY(100px);
@@ -2486,38 +2578,6 @@
   position: absolute;
   font-weight: 100;
   font-size: 1.3rem;
-  -webkit-animation: loading 1s linear infinite;
-          animation: loading 1s linear infinite;
-}
-
-@-webkit-keyframes loading {
-  0% {
-    content: "Uploading File";
-  }
-  33% {
-    content: "Uploading File.";
-  }
-  66% {
-    content: "Uploading File..";
-  }
-  100% {
-    content: "Uploading File...";
-  }
-}
-
-@keyframes loading {
-  0% {
-    content: "Uploading File";
-  }
-  33% {
-    content: "Uploading File.";
-  }
-  66% {
-    content: "Uploading File..";
-  }
-  100% {
-    content: "Uploading File...";
-  }
 }
 
 #light .add_edit_container .add_Edit_Song_container .add_edit_wrapper h2 {
@@ -2660,7 +2720,7 @@
   transition: all .25s ease;
 }
 
-@keyframes buttonTransform {}#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn:hover {
+#light .add_edit_container .add_Edit_Song_container .add_edit_wrapper .form_wrapper .wrap_upload_submit .add_edit_submit_btn:hover {
   background-color: #C6556B;
 }
 
@@ -2753,7 +2813,7 @@
   transition: all .25s ease;
 }
 
-@keyframes buttonTransform {}#light .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
+#light .navBarMenu .navBarContainer .navBarItem .newSongButton:hover {
   background-color: #C6556B;
 }
 

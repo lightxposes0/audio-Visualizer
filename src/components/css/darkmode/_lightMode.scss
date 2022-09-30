@@ -47,18 +47,62 @@
                 width: 90vw;
             }
 
+
+            .changeSongList {
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 3rem;
+                align-items: center;
+    
+                .changeSongListButtons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .changeSongListButton {
+                        width: 130px;
+                        height: 50px;
+                        border-radius: 0.4rem;
+                        background-color: $button_upload_red;
+                        font-family: "Lato";
+                        font-size: 1.1rem;
+    
+                        cursor: pointer;
+        
+                        border: 0;
+                        outline: 0;
+                        transition: all .15s ease;
+        
+                        color: var(--color-page-background);
+        
+                        &:active {
+                            background-color: $button_blue;
+                        }
+        
+                    }
+                }
+    
+                h2 {
+                    font-family: 'Lato';
+                    font-size: 1.1rem;
+                    margin-top: 2rem;
+                }
+    
+            }
+
             .logOutButton {
                 margin-top: 20px;
-                width: 80px;
-                height: 34px;
+                width: 100px;
+                height: 38px;
                 margin-bottom: 2.5rem;
                 cursor: pointer;
                 background-color: $button_blue;
-                border-radius: 1rem;
+                border-radius: 1.4rem;
                 border: 0;
                 transition: background-color .18s ease;
                 font-family: 'Lato';
-                font-size: 1rem;
+                font-size: 1.2rem;
+                color: var(--color-page-background);
                 
 
                 &:hover, &:focus {
@@ -635,11 +679,9 @@
             border: 0.5px solid var(--card-box-border);
             box-shadow: 1px 2px 10px var(--card-box-border);
             z-index: 100000;
-            animation: opacitychange 2s ease;
+            animation: moveY 2s ease;
             animation-fill-mode: both;
-            @keyframes opacitychange {
-                0% {opacity: 0;}
-                100% {opacity: 1;}
+            @keyframes moveY {
 
                 0% {transform: translateY(100px);}
                 100% {transform: translateY(0px);}
@@ -834,25 +876,7 @@
                         font-weight: 100;
                         font-size: 1.3rem;
 
-                        animation: loading 1s linear infinite;
-
-
                         
-                    }
-                    @keyframes loading {
-                        0% {
-                            content: "Uploading File"
-                        }
-
-                        33% {
-                            content: "Uploading File."
-                        }
-                        66% {
-                            content: "Uploading File.."
-                        }
-                        100% {
-                            content: "Uploading File..."
-                        }
                     }
                 }
 
@@ -963,9 +987,7 @@
                             transition: all .25s ease;
             
                             // Transition?? FX
-                            @keyframes buttonTransform {
-                                
-                            }
+
             
                             &:hover {
                                 background-color: $addsongbuttonhover;
@@ -1077,10 +1099,6 @@
                     cursor: pointer;
                     transition: all .25s ease;
 
-                    // Transition?? FX
-                    @keyframes buttonTransform {
-                        
-                    }
 
                     &:hover {
                         background-color: $addsongbuttonhover;

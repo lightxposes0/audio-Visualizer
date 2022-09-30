@@ -15,6 +15,9 @@ import { loadFull } from "tsparticles";
 const Home = (props) => {
     const [songs, setSongs] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [mapSliceCount1, setMapSliceCount1] = useState(0);
+    const [mapSliceCount2, setMapSliceCount2] = useState(10);
+    const [atThisPage, setAtThisPage] = useState(1);
 
     const navigate = useNavigate();
     const particlesInit = async (main) => {
@@ -78,6 +81,35 @@ const Home = (props) => {
         
     }, []);
 
+    
+
+    function updateMapSliceNextSongs() {
+        let countSongsInList = songs.length;
+        let countedSongInList_converted = (Math.floor((countSongsInList / 10)) * 10);
+        let countedSongInList_converted2 = ((Math.floor((countSongsInList / 10)) * 10) + 10);
+
+        console.log(countedSongInList_converted2);
+        if (mapSliceCount1 === countedSongInList_converted && mapSliceCount2 === countedSongInList_converted2) {
+            return
+        } else {
+            setMapSliceCount1(mapSliceCount1 => mapSliceCount1 += 10);
+            setMapSliceCount2(mapSliceCount2 => mapSliceCount2 += 10);
+            setAtThisPage(atThisPage => atThisPage += 1);
+            console.log(mapSliceCount1)
+        }
+
+    }
+    function updateMapSlicePrevSongs() {
+        if (mapSliceCount1 === 0 && mapSliceCount2 === 10){
+            return
+        } else {
+            setMapSliceCount1(mapSliceCount1 => mapSliceCount1 -= 10);
+            setMapSliceCount2(mapSliceCount2 => mapSliceCount2 -= 10);
+            setAtThisPage(atThisPage => atThisPage -= 1);
+
+        }
+
+    }
 
 
 
@@ -224,13 +256,21 @@ const Home = (props) => {
                 :
 
                     <div className='homepage_container'>
-                    <h1 className='homeTitleSongs'>Songs</h1>
-                    <button className='logOutButton' onClick={handleLogout}>Logout</button>
+                        <h1 className='homeTitleSongs'>Songs</h1>
+                        <button className='logOutButton' onClick={handleLogout}>Logout</button>
+                        <div className='changeSongList'>
+                            <div className='changeSongListButtons'>
+                            <button className='changeSongListButton' onClick={updateMapSlicePrevSongs}>Prev songlist</button>
+                            <button className='changeSongListButton' onClick={updateMapSliceNextSongs}>Next songlist</button>
+                            </div>
+                            <h2>{atThisPage} / {Math.ceil((songs.length / 10))}</h2>
+                        </div>
+
 
 
 
                         {  
-                                songs.length && songs.map((data) => {
+                                songs.length && songs.slice(mapSliceCount1, mapSliceCount2).map((data) => {
 
                                 return (
 
