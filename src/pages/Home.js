@@ -22,18 +22,19 @@ const Home = (props) => {
     const navigate = useNavigate();
 
 
+    const alteredSongsList = [...songs].slice(mapSliceCount1, mapSliceCount2);
+
+
     const songList1 = JSON.parse(localStorage.getItem('songListCount1'));
     const songList2 = JSON.parse(localStorage.getItem('songListCount2'));
     const songpage = JSON.parse(localStorage.getItem('songpagecounter'));
 
     useEffect(() => {
         if (typeof(songList1) === typeof({})) {
-            console.log("LocalStorage for songs was not found. setting to 0 and 10");
             localStorage.setItem('songListCount1', 0);
             localStorage.setItem('songListCount2', 10);
             localStorage.setItem('songpagecounter', 1);
         } else {
-            console.log("LocalStorage existed with values " , songList1, " and ", songList2);
 
             setMapSliceCount1(songList1)
             setMapSliceCount2(songList2)
@@ -307,7 +308,7 @@ const Home = (props) => {
 
 
                         {  
-                                songs.length && songs.slice(mapSliceCount1, mapSliceCount2).map((data) => {
+                                songs.length && alteredSongsList.map((data) => {
 
                                 return (
 

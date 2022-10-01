@@ -29,6 +29,8 @@ const AudioVisualizer = (props) => {
 
     // Create audio waveform object, and load song from database..
     useEffect(()=>{
+        let abortController = new AbortController();  
+
         if (audioRef.current){
                 audioTrackRef.current = wavesurfer.create({
                 container: audioRef.current,
@@ -48,6 +50,10 @@ const AudioVisualizer = (props) => {
 
         
         }
+
+        return () => {  
+            abortController.abort();  
+            }  
     }, [])   
     
 
@@ -66,7 +72,6 @@ const AudioVisualizer = (props) => {
         
     
         if (newVolume) {
-            console.log("new volume true,,, volume: " + volume)
             setVolume(volume => newVolume);
             audioTrackRef.current.setVolume(newVolume || 1);
         }

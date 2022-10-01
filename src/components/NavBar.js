@@ -49,11 +49,11 @@ const NavBar = ({toggleTheme, email}) => {
                     <button className='newSongButton' onClick={() => navigate("/add")}>Add Song</button>
                 </div>
                 <div className='buttonToggleDarkmode' >
-                    <input type="checkbox" class="checkbox" id="checkbox"/>
-                    <label for="checkbox" class="label" onClick={toggleTheme}>
+                    <input type="checkbox" className="checkbox" id="checkbox"/>
+                    <label htmlFor="checkbox" className="label" onClick={toggleTheme}>
                         <FontAwesomeIcon className='fa-sun' icon={faSun}/>
                         <FontAwesomeIcon className='fa-moon' icon={faMoon}/>
-                        <div class='ball'/>
+                        <div className='ball'/>
                     </label>
                 </div>
             </div>

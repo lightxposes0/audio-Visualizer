@@ -336,7 +336,7 @@ const AddEditSong = ({e, email}) => {
                                     onChange={handleChange} />
                                 <div className='wrap_upload_submit'>
                                     <div className='input_files_btns'>
-                                        <label for="uploadinput" className='upload_file_label'>Audio File</label>
+                                        <label htmlFor="uploadinput" className='upload_file_label'>Audio File</label>
                                         <input  
                                             id='uploadinput'
                                             name='uploadinput'
@@ -348,7 +348,7 @@ const AddEditSong = ({e, email}) => {
 
 
                                             {/* IMG file */}
-                                        <label for="uploadimageinput" className='upload_file_label'>Cover photo</label>
+                                        <label htmlFor="uploadimageinput" className='upload_file_label'>Cover photo</label>
                                         <input  
                                             id='uploadimageinput'
                                             name='uploadinput'

@@ -24,6 +24,10 @@ const Home = (props) => {
     const navigate = useNavigate();
 
 
+    const alteredSongsList = [...songs].slice(mapSliceCount1, mapSliceCount2);
+
+
+    /// LocalStorage to remember where the user was (song list ... x/x example, he left safari at page 2 / 5, remember that for next time!)
     const songList1 = JSON.parse(localStorage.getItem('songListCount1'));
     const songList2 = JSON.parse(localStorage.getItem('songListCount2'));
     const songpage = JSON.parse(localStorage.getItem('songpagecounter'));
@@ -299,7 +303,7 @@ const Home = (props) => {
                                     <h2>{atThisPage} / {Math.ceil((songs.length / 10))}</h2>
                                 </div>
                         {                              
-                            songs.length &&  songs.slice(mapSliceCount1, mapSliceCount2).map((data) => {
+                            songs.length &&  alteredSongsList.map((data) => {
                             console.log("Fetching...")
 
                             return (
