@@ -60,13 +60,18 @@ const Home = (props) => {
     useEffect(() => {
         let authToken = localStorage.getItem('Auth Token')
 
-        if (authToken) {
+        if (authToken != "visitor") {
             if (props.email === "stian.larsen@mac.com" || props.email === "Stian.larsen@mac.com") {
                 navigate("/adminHome")
             } else {
                 navigate('/home')
             }
 
+        }
+
+        if (authToken == "visitor") {
+            console.log("You are a visitor");
+            navigate("/home")
         }
 
         if (!authToken) {

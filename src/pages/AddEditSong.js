@@ -59,7 +59,7 @@ const AddEditSong = ({e, email}) => {
 
 
 
-
+    // When updating a current existing song, get id => www.website...no/update/ this.id (belongs to that song..) update that song
     useEffect(() => {
         id && getSingleUser()
     }, [id]);
@@ -79,7 +79,7 @@ const AddEditSong = ({e, email}) => {
 
         // Should run only when a file is being set.. Run only when file is being uploaded. 
         const uploadFile = (e) => {
-            if(!title) {
+            if(!title || !artist) {
                 alert("No input fields filled.");
                 return;
             };
@@ -146,8 +146,9 @@ const AddEditSong = ({e, email}) => {
         const uploadFile = (e) => {
             if(!title || !artist) {
                 alert("No input fields filled.");
-                navigate("/add");
+                return navigate("/add");
             };
+            console.log(file.type);
             const name = new Date().getTime() + file.name;
             const storageRef = ref(Storage, 'audioVisualizer/audio/'+ name);
             const uploadTask = uploadBytesResumable(storageRef, file);
@@ -235,7 +236,7 @@ const AddEditSong = ({e, email}) => {
                 try {
                     await addDoc(collection(db, "songs"), {
                         ...data,
-                        timestamp: serverTimestamp()
+                        timestamp: serverTimestamp(),
                     })
                     
                 } catch (error) {
@@ -282,20 +283,21 @@ const AddEditSong = ({e, email}) => {
             compressedBlob.lastModifiedDate = new Date()
 
             // Conver the blob to file
-            const convertedBlobFile = new File([compressedBlob], file.name, { type: file.type, lastModified: Date.now()})
+            const convertedBlobFile = new File([compressedBlob], file.name, { type: file.type, lastModified: file.lastModified})
             setImageFile(convertedBlobFile);
 
             // Here you are free to call any method you are gonna use to upload your file example uploadToCloudinaryUsingPreset(convertedBlobFile)
         })
         .catch(e => {
-            console.log("something went wrong");
+            console.log("something went wrong compressing the image..");
+            navigate("/add")
             return
         })
 
         setIsSubmit(true);
     } 
 
-    else {alert("You have no access to this feature!"); navigate("/add");}
+    else {alert("You have no access to upload images!"); navigate("/add");}
     }
     
 
@@ -344,7 +346,10 @@ const AddEditSong = ({e, email}) => {
                                             type="file" 
                                             label="Upload" 
 
-                                            onChange={(e) => {if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com"){setFile(e.target.files[0]); setIsSubmit(true);} else {alert("You have no access to this feature!"); navigate("/add");}}} />
+                                            onChange={(e) => {if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com")
+                                            {setFile(e.target.files[0]); 
+                                            setIsSubmit(true);} 
+                                            else {alert("You have no access to this feature!"); navigate("/add");}}} />
 
 
                                             {/* IMG file */}

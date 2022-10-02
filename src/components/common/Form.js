@@ -8,7 +8,7 @@ import { loadFull } from "tsparticles";
 
 
 
-export default function BasicTextFields({title, setPassword, setEmail, handleAction, changeScreen, handleLoginRegisterConfusion}) {
+export default function BasicTextFields({title, setPassword, setEmail, handleAction, changeScreen, handleLoginRegisterConfusion, seeWithoutLoggingIn, seeWithoutLogin}) {
 
     const particlesInit = async (main) => {
     
@@ -163,6 +163,7 @@ export default function BasicTextFields({title, setPassword, setEmail, handleAct
 
                 <Button handleAction={handleAction} title={title}/>
                 <Button handleAction={handleLoginRegisterConfusion} title={changeScreen}/>
+                <Button handleAction={seeWithoutLogin} title={seeWithoutLoggingIn}/>
             </div>
         </div>
     );

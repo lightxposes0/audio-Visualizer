@@ -122,7 +122,7 @@
   right: 0;
   width: 100%;
   z-index: 0;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 #dark .home_wrapper .homepage_container {
@@ -186,7 +186,11 @@
   color: var(--color-text);
 }
 
-#dark .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:active {
+#dark .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:hover {
+  background-color: #C6556B;
+}
+
+#dark .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:hover:active {
   background-color: #13AEA2;
 }
 
@@ -935,7 +939,7 @@
   right: 0;
   width: 100%;
   z-index: 0;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 #dark .form_container .form_wrapper {
@@ -1050,7 +1054,12 @@
   transition: all .25s ease;
 }
 
+#dark .form_container .form_wrapper .authButtons:nth-last-child(2) {
+  margin-top: 25px;
+}
+
 #dark .form_container .form_wrapper .authButtons:nth-last-child(1) {
+  background-color: var(--card-box-border);
   margin-top: 25px;
 }
 
@@ -1110,7 +1119,7 @@
   right: 0;
   width: 100%;
   z-index: 0;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 #dark .add_edit_container .add_Edit_Song_container {
@@ -1790,9 +1799,14 @@
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
   color: var(--color-page-background);
+  z-index: 1000;
 }
 
-#light .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:active {
+#light .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:hover {
+  background-color: #C6556B;
+}
+
+#light .home_wrapper .homepage_container .changeSongList .changeSongListButtons .changeSongListButton:hover:active {
   background-color: #13AEA2;
 }
 
@@ -2352,7 +2366,6 @@
   border: 0.5px solid var(--card-box-border);
   -webkit-box-shadow: 1px 2px 10px var(--card-box-border);
           box-shadow: 1px 2px 10px var(--card-box-border);
-  z-index: 100000;
   -webkit-animation: moveY 2s ease;
           animation: moveY 2s ease;
   -webkit-animation-fill-mode: both;
@@ -2458,7 +2471,13 @@
   transition: background-color .2s ease;
 }
 
+#light .form_container .form_wrapper .authButtons:nth-last-child(2) {
+  margin-top: 25px;
+}
+
 #light .form_container .form_wrapper .authButtons:nth-last-child(1) {
+  background-color: var(--card-box-border);
+  color: var(--color-page-background);
   margin-top: 25px;
 }
 
@@ -3024,5 +3043,10 @@
 
 .app {
   z-index: 10;
+}
+
+.label {
+  z-index: 100000000;
+  cursor: pointer;
 }
 /*# sourceMappingURL=App.css.map */

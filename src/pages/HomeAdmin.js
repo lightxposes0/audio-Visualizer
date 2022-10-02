@@ -62,12 +62,17 @@ const Home = (props) => {
         let authToken = localStorage.getItem('Auth Token')
 
 
-        if (authToken) {
+        if (authToken != "visitor") {
             if (props.email === "stian.larsen@mac.com" || props.email === "Stian.larsen@mac.com") {
+                console.log("admin...");
             navigate('/adminHome');
             }  else {
                 navigate("/login")
             }
+        }
+
+        if (authToken == "visitor") {
+            navigate("/home")
         }
         if (!authToken) {
             navigate('/admin')
@@ -329,7 +334,7 @@ const Home = (props) => {
                                             
                                     <div  className='card_content_extra'>
                                         
-                                        <FontAwesomeIcon className="updateButton" onClick={() => navigate('/update/' + data.id)} icon={faPen} />
+                                        <FontAwesomeIcon className="updateButton" email={props.email} onClick={() => navigate('/update/' + data.id)} icon={faPen} />
                                         <FontAwesomeIcon className="deleteButton" 
                                         onClick={() => {
                                             if (window.confirm("Are you sure you want to delete this song?")) {

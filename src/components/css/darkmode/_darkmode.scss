@@ -29,7 +29,7 @@
         right: 0;
         width: 100%;
         z-index: 0;
-        opacity: 0.2;
+        opacity: 0.4;
     }
 
 
@@ -72,12 +72,18 @@
                     transition: all .15s ease;
     
                     color: var(--color-text);
-    
-                    &:active {
-                        background-color: $button_blue;
+
+                    &:hover {
+                        background-color: $addsongbuttonhover;
+
+                        &:active {
+                            background-color: $button_blue;
+                        }
                     }
     
                 }
+
+
             }
 
             h2 {
@@ -885,7 +891,7 @@
             right: 0;
             width: 100%;
             z-index: 0;
-            opacity: 0.2;
+            opacity: 0.4;
         }
         
         .form_wrapper {
@@ -957,7 +963,11 @@
                         font-weight: 700;
                         cursor: pointer;
                         transition: all .25s ease;
+                        &:nth-last-child(2) {
+                            margin-top: 25px;
+                        }
                         &:nth-last-child(1) {
+                            background-color: var(--card-box-border);
                             margin-top: 25px;
                         }
         
@@ -1036,7 +1046,7 @@
         right: 0;
         width: 100%;
         z-index: 0;
-        opacity: 0.2;
+        opacity: 0.4;
     }
 
 

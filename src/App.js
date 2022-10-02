@@ -51,7 +51,7 @@ const App = () => {
         if (authToken) {
             navigate('/home');
         }
-    }, [])
+    }, []);
 
 
     // Handle register og login confusion..
@@ -63,7 +63,8 @@ const App = () => {
         if (id === 2) {
             navigate("/login")
         }
-    }
+    };
+
 
 
     // handle login
@@ -100,6 +101,13 @@ const App = () => {
                 navigate('/home');
             }
         }
+
+        if (id === 4) {
+            console.log("id == 4")
+            localStorage.setItem('Auth Token', "visitor");
+            navigate("/home");
+        }
+
 
 
     }
@@ -138,8 +146,10 @@ const App = () => {
                                                             setPassword={setPassword} 
                                                             handleAction={() => handleAction(1)}
                                                             handleLoginRegisterConfusion = {() => handleLoginRegisterConfusion(1)}
+                                                            seeWithoutLogin = {() => handleAction(4)}
                                                             title="Login"
-                                                            changeScreen="Go and Register"/>} 
+                                                            changeScreen="Go and Register" 
+                                                            seeWithoutLoggingIn="Continue without logging in"/>} 
 
                                                             />
                             <Route path='/register' element={<Form 
@@ -148,7 +158,10 @@ const App = () => {
                                                                 handleAction = {() => handleAction(2)}
                                                                 title="Register"
                                                                 handleLoginRegisterConfusion = {() => handleLoginRegisterConfusion(2)}
-                                                                changeScreen="Go to Login"/>} 
+                                                                changeScreen="Go to Login"
+                                                                seeWithoutLoggingIn="Continue without logging in"
+                                                                seeWithoutLogin = {() => handleAction(4)}
+                                                                />} 
 
                                                                 />
                             <Route path='/admin' element={<Form 
@@ -165,7 +178,7 @@ const App = () => {
                             <Route path="/home" element={<Home email={email} theme = {theme} />} />
                             <Route path="/adminHome" element={<HomeAdmin email={email} theme = {theme} />} />
                             <Route path="/add" element={<AddEditSong email={email} />} />
-                            <Route path="/update/:id" element={<AddEditSong />} />
+                            <Route path="/update/:id" element={<AddEditSong email={email} />} />
                             <Route path="/audio-Visualizer" element={<Home />} />
                         </Routes>
 

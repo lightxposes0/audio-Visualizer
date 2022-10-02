@@ -46,7 +46,7 @@ const NavBar = ({toggleTheme, email}) => {
                 
 
                 <div className="navBarItem">
-                    <button className='newSongButton' onClick={() => navigate("/add")}>Add Song</button>
+                    <button className='newSongButton' email={email} onClick={() => navigate("/add")}>Add Song</button>
                 </div>
                 <div className='buttonToggleDarkmode' >
                     <input type="checkbox" className="checkbox" id="checkbox"/>
