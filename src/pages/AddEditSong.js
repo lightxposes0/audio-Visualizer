@@ -15,7 +15,7 @@ const initialState = {
 };
 
 
-
+// export function for adding and updating a song.
 const AddEditSong = ({e, email}) => {
     const [data, setData] = useState(initialState);
     const {title, artist} = data;
@@ -26,12 +26,11 @@ const AddEditSong = ({e, email}) => {
     const navigate = useNavigate();
     const {id} = useParams();
 
-    // after merge,   NEW FEATURE == new button for IMG..
     const [imageFile, setImageFile] = useState(null);
     // Run on state change for image upload...
 
 
-    // BG
+    // Dynamic Background
     const particlesInit = async (main) => {
     
         // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -40,6 +39,8 @@ const AddEditSong = ({e, email}) => {
         await loadFull(main);
     };
 
+
+    // Check wheter a user is logged in or not
     useEffect(() => {
         let authToken = localStorage.getItem('Auth Token')
 
@@ -65,7 +66,7 @@ const AddEditSong = ({e, email}) => {
     }, [id]);
 
 
-    // gets that song specific for update...
+    // gets that  specific song for update...
     const getSingleUser = async () => {
         const documentRef = doc(db, "songs", id);
         const snapshot = await getDoc(documentRef);
@@ -139,7 +140,6 @@ const AddEditSong = ({e, email}) => {
 
 
     // Handle AUDIO upload
-
     useEffect(() => {
 
         // Should run only when a file is being set.. Run only when file is being uploaded. 
@@ -199,11 +199,12 @@ const AddEditSong = ({e, email}) => {
 
     }, [file]);
 
-    // Take input (title, artist) and store in DATA..
+    // Take input (title, artist) and store in DATA state..
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value});
     };
 
+    // check for errors
     const validate = () => {
         let errors = {};
         
@@ -225,11 +226,13 @@ const AddEditSong = ({e, email}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         let errors = validate();
+        // check for errors
         if(Object.keys(errors).length) return setErrors(errors);
 
-
+        // loading === true! this will start the loading spinner
         setIsSubmit(true);
 
+        // if not ID === true? then => this is not an update, but a new instance..
         if(!id) {
             if ((file && imageFile) || id) {
             
@@ -247,7 +250,10 @@ const AddEditSong = ({e, email}) => {
                 navigate("/add")
             }
             
-        } else {
+        } 
+
+        // since ID of song was found, this will update that song instance
+        else {
             try {
                 await updateDoc(doc(db, "songs", id), {
                     ...data,
@@ -258,9 +264,12 @@ const AddEditSong = ({e, email}) => {
             }
         }
 
+        // if Admin, return to admin page.
         if (email === "stian.larsen@mac.com" || email === "Stian.larsen@mac.com") {
             navigate("/adminHome");
-        } else {
+        } 
+        // if not admin, return to regular homepage
+        else {
             navigate("/home");
         }
     };

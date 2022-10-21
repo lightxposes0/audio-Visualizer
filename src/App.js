@@ -10,7 +10,7 @@ import { createContext, useState, useEffect } from 'react';
 
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
 
-import Form from './components/common/Form'
+import Form from './components/common/Form';
 
 
 
@@ -44,7 +44,7 @@ const App = () => {
 
 
 
-
+    // check for logged in user
     useEffect(() => {
         let authToken = localStorage.getItem('Auth Token')
     
@@ -67,7 +67,7 @@ const App = () => {
 
 
 
-    // handle login
+    // handle login with firebase
     const handleAction = (id) => {
         const authentication = getAuth();
 
@@ -139,7 +139,6 @@ const App = () => {
                         
                         <NavBar email = {email} toggleTheme={() => toggleTheme()}/>
 
-                        {/* // handleaction() ?? */}
                         <Routes>
                             <Route path='/login' element={<Form 
                                                             setEmail={setEmail} 

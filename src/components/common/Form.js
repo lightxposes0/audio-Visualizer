@@ -10,6 +10,7 @@ import { loadFull } from "tsparticles";
 
 export default function BasicTextFields({title, setPassword, setEmail, handleAction, changeScreen, handleLoginRegisterConfusion, seeWithoutLoggingIn, seeWithoutLogin}) {
 
+    // background dynamic
     const particlesInit = async (main) => {
     
         // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
